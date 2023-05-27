@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Pedestrian : MonoBehaviour
 {
-    [SerializeField] private float pedSpeed;
-    [SerializeField] private GameObject pedestrian;
+    public float pedSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +15,12 @@ public class Pedestrian : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        pedestrian.transform.position += Vector3.up * pedSpeed * Time.deltaTime;
+        transform.position += Vector3.up * pedSpeed * Time.deltaTime;
+    }
+
+    private void OnDestroy()
+    {
+        Debug.Log("歩行者分のスコアが減った！");
+        //ScoreManager.歩行者分のスコア減らすための関数();
     }
 }
