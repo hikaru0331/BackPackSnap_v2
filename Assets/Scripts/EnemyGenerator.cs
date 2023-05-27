@@ -34,9 +34,10 @@ public class EnemyGenerator : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.tag == "Enemy")
+        if(other.gameObject.tag == "Pedestrian")
         {
             Destroy(other.gameObject);
+            //ScoreManager.歩行者分のスコア減らすための関数();
         }
     }
 

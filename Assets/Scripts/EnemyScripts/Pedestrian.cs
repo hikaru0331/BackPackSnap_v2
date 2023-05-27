@@ -17,10 +17,4 @@ public class Pedestrian : MonoBehaviour
     {
         transform.position += Vector3.up * pedSpeed * Time.deltaTime;
     }
-
-    private void OnDestroy()
-    {
-        Debug.Log("歩行者分のスコアが減った！");
-        //ScoreManager.歩行者分のスコア減らすための関数();
-    }
 }

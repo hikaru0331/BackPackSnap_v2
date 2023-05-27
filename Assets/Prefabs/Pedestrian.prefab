@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -1589210004548458036}
   m_Layer: 0
   m_Name: Pedestrian
-  m_TagString: Enemy
+  m_TagString: Pedestrian
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
