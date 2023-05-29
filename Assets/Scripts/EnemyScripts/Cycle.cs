@@ -5,7 +5,7 @@ using UnityEngine;
 public class Cycle : MonoBehaviour
 {
     //自転車のスピード
-    public float cycleSpeed;
+    public static float cycleSpeed;
 
     // Start is called before the first frame update
     void Start()

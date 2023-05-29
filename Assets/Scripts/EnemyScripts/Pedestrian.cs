@@ -5,7 +5,7 @@ using UnityEngine;
 public class Pedestrian : MonoBehaviour
 {
     //歩行者のスピード
-    public float pedSpeed;
+    public static float pedSpeed;
 
     // Start is called before the first frame update
     void Start()
