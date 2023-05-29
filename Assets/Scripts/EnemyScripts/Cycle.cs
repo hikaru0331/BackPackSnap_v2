@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pedestrian : MonoBehaviour
+public class Cycle : MonoBehaviour
 {
-    public float pedSpeed;
+    public float cycleSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -15,12 +15,12 @@ public class Pedestrian : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.position += Vector3.up * pedSpeed * Time.deltaTime;
+        transform.position += Vector3.up * cycleSpeed * Time.deltaTime;
     }
 
-    public void PedstrianCut()
+    public void CycleCut()
     {
-        Debug.Log("í çsêlêÿíf");
+        Debug.Log("é©ì]é‘êÿíf");
         //Destroy(gameObject);
     }
 }
