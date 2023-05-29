@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Pedestrian : MonoBehaviour
 {
+    //歩行者のスピード
     public float pedSpeed;
 
     // Start is called before the first frame update
@@ -21,6 +22,6 @@ public class Pedestrian : MonoBehaviour
     public void PedstrianCut()
     {
         Debug.Log("通行人切断");
-        //Destroy(gameObject);
+        //ScoreManager.歩行者分のスコア加算のための関数();
     }
 }

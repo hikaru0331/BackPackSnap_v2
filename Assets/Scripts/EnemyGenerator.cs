@@ -5,12 +5,15 @@ using UnityEngine.SocialPlatforms;
 
 public class EnemyGenerator : MonoBehaviour
 {
+    //通行人参照用変数
     [SerializeField] private GameObject pedestrian;
     [SerializeField] private GameObject cycle;
 
+    //各通行人専用のタイマー
     private float pedTimer;
     private float cycleTimer;
 
+    //通行人ごとのインターバルの変数
     private float pedInterval;
     private float cycleInterval;
 
@@ -28,8 +31,8 @@ public class EnemyGenerator : MonoBehaviour
 
         float position = Random.Range(-3.0f, 3.0f);
 
-        pedInterval = Random.Range(1.0f, 2.0f);
-        cycleInterval = Random.Range(3.0f, 5.0f);
+        pedInterval = 1.0f;//Random.Range(1.0f, 2.0f);
+        cycleInterval = 5.0f;//Random.Range(3.0f, 5.0f);
 
         if (pedTimer >= pedInterval)
         {

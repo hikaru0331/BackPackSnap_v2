@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Cycle : MonoBehaviour
 {
+    //自転車のスピード
     public float cycleSpeed;
 
     // Start is called before the first frame update
@@ -21,6 +22,6 @@ public class Cycle : MonoBehaviour
     public void CycleCut()
     {
         Debug.Log("自転車切断");
-        //Destroy(gameObject);
+        //ScoreManager.歩行者分のスコア加算のための関数();
     }
 }
