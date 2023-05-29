@@ -5,39 +5,64 @@ using UnityEngine.SocialPlatforms;
 
 public class EnemyGenerator : MonoBehaviour
 {
+    //通行人参照用変数
     [SerializeField] private GameObject pedestrian;
+    [SerializeField] private GameObject cycle;
 
-    private float timer;
-    public float interval;
+    //各通行人専用のタイマー
+    private float pedTimer;
+    private float cycleTimer;
+
+    //通行人ごとのインターバルの変数
+    private float pedInterval;
+    private float cycleInterval;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
+        pedTimer += Time.deltaTime;
+        cycleTimer += Time.deltaTime;
 
-        float position = Random.Range(-3, 3);
+        float position = Random.Range(-3.0f, 3.0f);
 
-        if (timer >= interval)
+        pedInterval = 1.0f;//Random.Range(1.0f, 2.0f);
+        cycleInterval = 5.0f;//Random.Range(3.0f, 5.0f);
+
+        if (pedTimer >= pedInterval)
         {
-            timer = 0;
+            pedTimer = 0;
 
             Instantiate(pedestrian, new Vector3(position, -6.5f, 0), Quaternion.identity);
 
         }
+
+        if (cycleTimer >= cycleInterval)
+        {
+            cycleTimer = 0;
+
+            Instantiate(cycle, new Vector3(position, -6.5f, 0), Quaternion.identity);
+
+        }
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.tag == "Pedestrian")
         {
             Destroy(other.gameObject);
             //ScoreManager.歩行者分のスコア減らすための関数();
+        }
+
+        if (other.gameObject.tag == "Cycle")
+        {
+            Destroy(other.gameObject);
+            //ScoreManager.自転車分のスコア減らすための関数();
         }
     }
 

@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pedestrian : MonoBehaviour
+public class Cycle : MonoBehaviour
 {
-    //歩行者のスピード
-    public float pedSpeed;
+    //自転車のスピード
+    public float cycleSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -16,12 +16,12 @@ public class Pedestrian : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.position += Vector3.up * pedSpeed * Time.deltaTime;
+        transform.position += Vector3.up * cycleSpeed * Time.deltaTime;
     }
 
-    public void PedstrianCut()
+    public void CycleCut()
     {
-        Debug.Log("通行人切断");
+        Debug.Log("自転車切断");
         //ScoreManager.歩行者分のスコア加算のための関数();
     }
 }
