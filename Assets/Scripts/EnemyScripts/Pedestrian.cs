@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Pedestrian : MonoBehaviour
-{
+{   
     //歩行者のスピード
-    public static float pedSpeed;
+    public static float pedSpeed = 3.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -22,6 +22,5 @@ public class Pedestrian : MonoBehaviour
     public void PedstrianCut()
     {
         Debug.Log("通行人切断");
-        //ScoreManager.歩行者分のスコア加算のための関数();
     }
 }

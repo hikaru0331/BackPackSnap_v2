@@ -5,6 +5,9 @@ using UnityEngine.SocialPlatforms;
 
 public class EnemyGenerator : MonoBehaviour
 {
+    //ScoreManagerを入れる変数
+    [SerializeField] private GameObject scoreManager;
+
     //通行人参照用変数
     [SerializeField] private GameObject pedestrian;
     [SerializeField] private GameObject cycle;
@@ -31,8 +34,11 @@ public class EnemyGenerator : MonoBehaviour
 
         float position = Random.Range(-3.0f, 3.0f);
 
-        pedInterval = 1.0f;//Random.Range(1.0f, 2.0f);
-        cycleInterval = 5.0f;//Random.Range(3.0f, 5.0f);
+        pedInterval = Random.Range(1.0f, 2.0f);
+        cycleInterval = Random.Range(3.0f, 5.0f);
+
+        //pedInterval = 1.0f;
+        //cycleInterval = 5.0f;
 
         if (pedTimer >= pedInterval)
         {
@@ -56,13 +62,13 @@ public class EnemyGenerator : MonoBehaviour
         if(other.gameObject.tag == "Pedestrian")
         {
             Destroy(other.gameObject);
-            //ScoreManager.歩行者分のスコア減らすための関数();
+            scoreManager.GetComponent<ScoreManager>().ScoreDecresePedestrian();
         }
 
         if (other.gameObject.tag == "Cycle")
         {
             Destroy(other.gameObject);
-            //ScoreManager.自転車分のスコア減らすための関数();
+            scoreManager.GetComponent<ScoreManager>().ScoreDecreseCycle();
         }
     }
 

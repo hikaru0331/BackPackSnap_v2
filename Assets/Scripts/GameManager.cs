@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    //ScoreManager‚ğ“ü‚ê‚é•Ï”
+    [SerializeField] private GameObject scoreManager;
+
     //’Êsl‚ğØ‚Á‚½‚©‚Ç‚¤‚©”»’è‚·‚é•Ï”
     private bool isCut = false;
 
@@ -36,12 +39,16 @@ public class GameManager : MonoBehaviour
                 if (hit.collider.tag == "Pedestrian")
                 {
                     pedestrian.PedstrianCut();
+                    scoreManager.GetComponent<ScoreManager>().ScoreIncresePedestrian();
+                    //UltlaManager.•àsÒ•ª‚Ì•KØ‹ZƒQ[ƒW‰ÁZ‚Ì‚½‚ß‚ÌŠÖ”();
                     Destroy(hit.collider.gameObject);
                 }
                                 
                  if (hit.collider.tag == "Cycle")
                 {
                     cycle.CycleCut();
+                    scoreManager.GetComponent<ScoreManager>().ScoreIncreseCycle();
+                    //UltlaManager.©“]Ô•ª‚Ì•KØ‹ZƒQ[ƒW‰ÁZ‚Ì‚½‚ß‚ÌŠÖ”();
                     Destroy(hit.collider.gameObject);
                 }
                 
