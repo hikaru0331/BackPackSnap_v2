@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
     Pedestrian pedestrian;
     Cycle cycle;
 
+    //”j‰ó‚·‚é’Êsl‚ğ“ü‚ê‚é•Ï”
+    public static GameObject destroyEnemy;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,18 +41,20 @@ public class GameManager : MonoBehaviour
 
                 if (hit.collider.tag == "Pedestrian")
                 {
+                    destroyEnemy = hit.collider.gameObject;
+
                     pedestrian.PedstrianCut();
                     scoreManager.GetComponent<ScoreManager>().ScoreIncresePedestrian();
                     //UltlaManager.•àsÒ•ª‚Ì•KØ‹ZƒQ[ƒW‰ÁZ‚Ì‚½‚ß‚ÌŠÖ”();
-                    Destroy(hit.collider.gameObject);
                 }
                                 
                  if (hit.collider.tag == "Cycle")
                 {
+                    destroyEnemy = hit.collider.gameObject;
+
                     cycle.CycleCut();
                     scoreManager.GetComponent<ScoreManager>().ScoreIncreseCycle();
                     //UltlaManager.©“]Ô•ª‚Ì•KØ‹ZƒQ[ƒW‰ÁZ‚Ì‚½‚ß‚ÌŠÖ”();
-                    Destroy(hit.collider.gameObject);
                 }
                 
             }

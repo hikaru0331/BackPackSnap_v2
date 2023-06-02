@@ -61,13 +61,13 @@ public class EnemyGenerator : MonoBehaviour
     {
         if(other.gameObject.tag == "Pedestrian")
         {
-            Destroy(other.gameObject);
+            GameManager.destroyEnemy = other.gameObject; 
             scoreManager.GetComponent<ScoreManager>().ScoreDecresePedestrian();
         }
 
         if (other.gameObject.tag == "Cycle")
         {
-            Destroy(other.gameObject);
+            GameManager.destroyEnemy = other.gameObject;
             scoreManager.GetComponent<ScoreManager>().ScoreDecreseCycle();
         }
     }

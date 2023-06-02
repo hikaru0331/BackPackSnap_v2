@@ -23,18 +23,22 @@ public class ScoreManager : MonoBehaviour
     public void ScoreIncresePedestrian()
     {
         score += 1000;
+        Destroy(GameManager.destroyEnemy);
     }
     public void ScoreDecresePedestrian()
     {
         score -= 1000;
+        Destroy(GameManager.destroyEnemy);
     }
 
     public void ScoreIncreseCycle()
     {
         score += 5000;
+        Destroy(GameManager.destroyEnemy);
     }
     public void ScoreDecreseCycle()
     {
         score -= 5000;
+        Destroy(GameManager.destroyEnemy);
     }
 }
