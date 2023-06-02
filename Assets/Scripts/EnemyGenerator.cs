@@ -6,7 +6,8 @@ using UnityEngine.SocialPlatforms;
 public class EnemyGenerator : MonoBehaviour
 {
     //ScoreManagerを入れる変数
-    [SerializeField] private GameObject scoreManager;
+    [SerializeField] private GameObject scoreManagerObj;
+    ScoreManager scoreManager;
 
     //通行人参照用変数
     [SerializeField] private GameObject pedestrian;
@@ -23,7 +24,7 @@ public class EnemyGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        scoreManager = scoreManagerObj.GetComponent<ScoreManager>();
     }
 
     // Update is called once per frame
@@ -62,13 +63,13 @@ public class EnemyGenerator : MonoBehaviour
         if(other.gameObject.tag == "Pedestrian")
         {
             GameManager.destroyEnemy = other.gameObject; 
-            scoreManager.GetComponent<ScoreManager>().ScoreDecresePedestrian();
+            scoreManager.ScoreDecresePedestrian();
         }
 
         if (other.gameObject.tag == "Cycle")
         {
             GameManager.destroyEnemy = other.gameObject;
-            scoreManager.GetComponent<ScoreManager>().ScoreDecreseCycle();
+            scoreManager.ScoreDecreseCycle();
         }
     }
 
