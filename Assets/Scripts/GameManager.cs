@@ -5,7 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     //ScoreManager‚ğ“ü‚ê‚é•Ï”
-    [SerializeField] private GameObject scoreManager;
+    [SerializeField] private GameObject scoreManagerObj;
+    ScoreManager scoreManager;
 
     //’Êsl‚ğØ‚Á‚½‚©‚Ç‚¤‚©”»’è‚·‚é•Ï”
     private bool isCut = false;
@@ -23,6 +24,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        scoreManager = scoreManagerObj.GetComponent<ScoreManager>();
+
         pedestrian = enemies[0].GetComponent<Pedestrian>();
         cycle = enemies[1].GetComponent<Cycle>();
     }
@@ -44,7 +47,7 @@ public class GameManager : MonoBehaviour
                     destroyEnemy = hit.collider.gameObject;
 
                     pedestrian.PedstrianCut();
-                    scoreManager.GetComponent<ScoreManager>().ScoreIncresePedestrian();
+                    scoreManager.ScoreIncresePedestrian();
                     //UltlaManager.•àsÒ•ª‚Ì•KØ‹ZƒQ[ƒW‰ÁZ‚Ì‚½‚ß‚ÌŠÖ”();
                 }
                                 
@@ -53,7 +56,7 @@ public class GameManager : MonoBehaviour
                     destroyEnemy = hit.collider.gameObject;
 
                     cycle.CycleCut();
-                    scoreManager.GetComponent<ScoreManager>().ScoreIncreseCycle();
+                    scoreManager.ScoreIncreseCycle();
                     //UltlaManager.©“]Ô•ª‚Ì•KØ‹ZƒQ[ƒW‰ÁZ‚Ì‚½‚ß‚ÌŠÖ”();
                 }
                 

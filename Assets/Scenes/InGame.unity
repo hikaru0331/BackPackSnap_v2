@@ -315,7 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74bd4292246329a4a99e93908f5a6bac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreManager: {fileID: 2142404457}
+  scoreManagerObj: {fileID: 2142404457}
   enemies:
   - {fileID: 1974751667044654735, guid: 825feb27942eb4b478ad5ce5c7b8a67b, type: 3}
   - {fileID: 736919179545354129, guid: 81062ff8891b3a44db01085e9efc0f10, type: 3}
