@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    //ScoreManager‚ğ“ü‚ê‚é•Ï”
+    [SerializeField] private GameObject scoreManagerObj;
+    ScoreManager scoreManager;
+
     //’Êsl‚ğØ‚Á‚½‚©‚Ç‚¤‚©”»’è‚·‚é•Ï”
     private bool isCut = false;
 
@@ -14,9 +18,14 @@ public class GameManager : MonoBehaviour
     Pedestrian pedestrian;
     Cycle cycle;
 
+    //”j‰ó‚·‚é’Êsl‚ğ“ü‚ê‚é•Ï”
+    public static GameObject destroyEnemy;
+
     // Start is called before the first frame update
     void Start()
     {
+        scoreManager = scoreManagerObj.GetComponent<ScoreManager>();
+
         pedestrian = enemies[0].GetComponent<Pedestrian>();
         cycle = enemies[1].GetComponent<Cycle>();
     }
@@ -35,14 +44,20 @@ public class GameManager : MonoBehaviour
 
                 if (hit.collider.tag == "Pedestrian")
                 {
+                    destroyEnemy = hit.collider.gameObject;
+
                     pedestrian.PedstrianCut();
-                    Destroy(hit.collider.gameObject);
+                    scoreManager.ScoreIncresePedestrian();
+                    //UltlaManager.•àsÒ•ª‚Ì•KØ‹ZƒQ[ƒW‰ÁZ‚Ì‚½‚ß‚ÌŠÖ”();
                 }
                                 
                  if (hit.collider.tag == "Cycle")
                 {
+                    destroyEnemy = hit.collider.gameObject;
+
                     cycle.CycleCut();
-                    Destroy(hit.collider.gameObject);
+                    scoreManager.ScoreIncreseCycle();
+                    //UltlaManager.©“]Ô•ª‚Ì•KØ‹ZƒQ[ƒW‰ÁZ‚Ì‚½‚ß‚ÌŠÖ”();
                 }
                 
             }
