@@ -21,6 +21,6 @@ public class Cycle : MonoBehaviour
 
     public void CycleCut()
     {
-        Debug.Log("自転車切断");
+        //ここでアニメーションを制御するメソッドを呼び出す
     }
 }
