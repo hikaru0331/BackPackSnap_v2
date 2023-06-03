@@ -26,7 +26,6 @@ public class ScoreManager : MonoBehaviour
     {
         score += 1000;
         destroyCount++;
-        Debug.Log(destroyCount);
 
         Destroy(GameManager.destroyEnemy);
     }
@@ -41,7 +40,6 @@ public class ScoreManager : MonoBehaviour
     {
         score += 5000;
         destroyCount++;
-        Debug.Log(destroyCount);
 
         Destroy(GameManager.destroyEnemy);
     }
