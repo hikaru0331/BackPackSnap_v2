@@ -21,6 +21,6 @@ public class Pedestrian : MonoBehaviour
 
     public void PedstrianCut()
     {
-        Debug.Log("通行人切断");
+        //ここでアニメーションを制御するメソッドを呼び出す
     }
 }
