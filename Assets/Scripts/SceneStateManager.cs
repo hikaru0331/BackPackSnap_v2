@@ -4,27 +4,17 @@ using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneManagement : MonoBehaviour
+public class SceneStateManager : MonoBehaviour
 {
-    public static SceneManagement instance;
+    public static SceneStateManager instance;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        DontDestroyOnLoad (gameObject);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void CheckInstance()
+    private void Awake()
     {
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -32,10 +22,24 @@ public class SceneManagement : MonoBehaviour
         }
     }
 
-    //Titleをロードするメソッド
+    //以下OutGameに関するシーンをロードするメソッド
     public void LoadTitle()
     {
         SceneManager.LoadScene("Title");
+    }
+
+    public void LoadStageSelect()
+    {
+        SceneManager.LoadScene("StageSelection");
+    }
+
+    public void QuitGame()
+    {
+    #if UNITY_EDITOR
+         UnityEditor.EditorApplication.isPlaying = false; //ゲームプレイ終了
+    #else
+         Application.Quit(); //ゲームプレイ終了
+    #endif
     }
 
 

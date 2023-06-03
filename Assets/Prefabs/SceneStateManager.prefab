@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6912615149951564868}
-  - component: {fileID: 6912615149951564869}
+  - component: {fileID: 2932410002484693447}
   m_Layer: 0
-  m_Name: SceneManagement
+  m_Name: SceneStateManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6912615149951564869
+--- !u!114 &2932410002484693447
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,6 +40,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6912615149951564866}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d25d94f2799650740b48ec1d90c56b36, type: 3}
+  m_Script: {fileID: 11500000, guid: e50edf1b86e1f40478c9b42a67cee64a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

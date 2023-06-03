@@ -301,7 +301,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6912615149951564869, guid: 21006a61c6e22714b85a6bb3b72375bf, type: 3}
+      - m_Target: {fileID: 2932410002484693447, guid: 21006a61c6e22714b85a6bb3b72375bf, type: 3}
         m_TargetAssemblyTypeName: SceneStateManager, Assembly-CSharp
         m_MethodName: LoadRuralInGame
         m_Mode: 1
@@ -922,7 +922,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6912615149951564869, guid: 21006a61c6e22714b85a6bb3b72375bf, type: 3}
+      - m_Target: {fileID: 2932410002484693447, guid: 21006a61c6e22714b85a6bb3b72375bf, type: 3}
         m_TargetAssemblyTypeName: SceneStateManager, Assembly-CSharp
         m_MethodName: LoadTitle
         m_Mode: 1
