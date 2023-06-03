@@ -4,17 +4,27 @@ using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneStateManager : MonoBehaviour
+public class SceneManagement : MonoBehaviour
 {
-    public static SceneStateManager instance;
+    public static SceneManagement instance;
 
     // Start is called before the first frame update
-    private void Awake()
+    void Start()
+    {
+        DontDestroyOnLoad (gameObject);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    private void CheckInstance()
     {
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {

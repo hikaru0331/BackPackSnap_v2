@@ -8,7 +8,7 @@ using static UnityEngine.EventSystems.EventTrigger;
 public class TimeManager : MonoBehaviour
 {
     public Text timerText;
-    private float timeCounter = 60.0f;
+    private float timeCounter = 3.0f;
 
     public GameObject playingCanvas;
     public GameObject gameOverCanvas;
