@@ -22,10 +22,24 @@ public class SceneStateManager : MonoBehaviour
         }
     }
 
-    //Titleをロードするメソッド
+    //以下OutGameに関するシーンをロードするメソッド
     public void LoadTitle()
     {
         SceneManager.LoadScene("Title");
+    }
+
+    public void LoadStageSelect()
+    {
+        SceneManager.LoadScene("StageSelect");
+    }
+
+    public void QuitGame()
+    {
+    #if UNITY_EDITOR
+         UnityEditor.EditorApplication.isPlaying = false; //ゲームプレイ終了
+    #else
+         Application.Quit(); //ゲームプレイ終了
+    #endif
     }
 
 
