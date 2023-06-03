@@ -30,7 +30,7 @@ public class SceneStateManager : MonoBehaviour
 
     public void LoadStageSelect()
     {
-        SceneManager.LoadScene("StageSelect");
+        SceneManager.LoadScene("StageSelection");
     }
 
     public void QuitGame()
