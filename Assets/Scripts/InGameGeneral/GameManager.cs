@@ -10,6 +10,11 @@ public class GameManager : MonoBehaviour
 
     //通行人を切ったかどうか判定する変数
     private bool isCut = false;
+    //マウスクリックの視点と終点を入れる変数
+    private Vector2 startPos;
+    private Vector2 endPos;
+    //マウスクリックの始点と終点の座標間の距離を入れる変数
+    private float posDistance;
 
     //通行人を入れるための配列
     public GameObject[] enemies;
@@ -33,6 +38,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetMouseButtonDown(0))
+        {
+            startPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        }
+
         if(Input.GetMouseButton(0)) 
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -45,29 +55,47 @@ public class GameManager : MonoBehaviour
                 if (hit.collider.tag == "Pedestrian")
                 {
                     destroyEnemy = hit.collider.gameObject;
-
-                    pedestrian.PedstrianCut();
-                    scoreManager.ScoreIncresePedestrian();
-                    //UltlaManager.歩行者分の必切技ゲージ加算のための関数();
                 }
                                 
                  if (hit.collider.tag == "Cycle")
                 {
                     destroyEnemy = hit.collider.gameObject;
 
-                    cycle.CycleCut();
-                    scoreManager.ScoreIncreseCycle();
-                    //UltlaManager.自転車分の必切技ゲージ加算のための関数();
-                }
-                
+                }                
             }
 
         }
 
-        if(Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0))
         {
+            endPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            posDistance = Vector2.Distance(startPos, endPos);
+
+            if (posDistance > 1.0f)
+            {
+                if (destroyEnemy != null)
+                {
+                    if (destroyEnemy.tag == "Pedestrian")
+                    {
+                        pedestrian.PedstrianCut();
+                        scoreManager.ScoreIncresePedestrian();
+                        //UltlaManager.歩行者分の必切技ゲージ加算のための関数();
+
+                        destroyEnemy = null;
+                    }
+                    else if (destroyEnemy.tag == "Cycle")
+                    {
+                        pedestrian.PedstrianCut();
+                        scoreManager.ScoreIncresePedestrian();
+                        //UltlaManager.歩行者分の必切技ゲージ加算のための関数();
+
+                        destroyEnemy = null;
+                    }
+                }                               
+            }
+
+            //再びカットできるようにする
             isCut = !isCut;
         }
-
     }
 }
