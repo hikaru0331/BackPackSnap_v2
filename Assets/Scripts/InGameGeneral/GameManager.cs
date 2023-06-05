@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
                     else if (destroyEnemy.tag == "Cycle")
                     {
                         pedestrian.PedstrianCut();
-                        scoreManager.ScoreIncresePedestrian();
+                        scoreManager.ScoreIncreseCycle();
                         //UltlaManager.•àsÒ•ª‚Ì•KØ‹ZƒQ[ƒW‰ÁZ‚Ì‚½‚ß‚ÌŠÖ”();
 
                         destroyEnemy = null;
