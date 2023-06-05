@@ -489,6 +489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 695986075}
+  enemyGeneratorObj: {fileID: 1418462109}
   playingCanvas: {fileID: 1747673271}
   gameOverCanvas: {fileID: 1895852050}
 --- !u!1 &990419642

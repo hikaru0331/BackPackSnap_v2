@@ -12,7 +12,7 @@ public class EnemyGenerator : MonoBehaviour
     //通行人参照用変数
     [SerializeField] private GameObject pedestrian;
     [SerializeField] private GameObject cycle;
-
+       
     //各通行人専用のタイマー
     private float pedTimer;
     private float cycleTimer;
@@ -25,6 +25,9 @@ public class EnemyGenerator : MonoBehaviour
     void Start()
     {
         scoreManager = scoreManagerObj.GetComponent<ScoreManager>();
+
+        pedInterval = Random.Range(1.0f, 2.0f);
+        cycleInterval = Random.Range(3.0f, 5.0f);
     }
 
     // Update is called once per frame
@@ -33,20 +36,13 @@ public class EnemyGenerator : MonoBehaviour
         pedTimer += Time.deltaTime;
         cycleTimer += Time.deltaTime;
 
-        float position = Random.Range(-3.0f, 3.0f);
-
-        pedInterval = Random.Range(1.0f, 2.0f);
-        cycleInterval = Random.Range(3.0f, 5.0f);
-
-        //pedInterval = 1.0f;
-        //cycleInterval = 5.0f;
+        float position = Random.Range(-3.0f, 3.0f);       
 
         if (pedTimer >= pedInterval)
         {
             pedTimer = 0;
 
             Instantiate(pedestrian, new Vector3(position, -6.5f, 0), Quaternion.identity);
-
         }
 
         if (cycleTimer >= cycleInterval)
@@ -54,7 +50,6 @@ public class EnemyGenerator : MonoBehaviour
             cycleTimer = 0;
 
             Instantiate(cycle, new Vector3(position, -6.5f, 0), Quaternion.identity);
-
         }
     }
 
@@ -71,6 +66,12 @@ public class EnemyGenerator : MonoBehaviour
             GameManager.destroyEnemy = other.gameObject;
             scoreManager.ScoreDecreseCycle();
         }
+    }
+
+    public void SetInterval()
+    {
+        pedInterval = Random.Range(0.5f, 1.0f);
+        cycleInterval = Random.Range(1.0f, 2.0f);
     }
 
 }
