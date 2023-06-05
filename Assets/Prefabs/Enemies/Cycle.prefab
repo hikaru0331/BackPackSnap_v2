@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 736919179545354132}
   - component: {fileID: 736919179545354131}
   - component: {fileID: 736919179545354130}
+  - component: {fileID: 2439096149008804265}
   m_Layer: 0
   m_Name: Cycle
   m_TagString: Cycle
@@ -142,5 +143,24 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 2.8}
+  m_Size: {x: 2, y: 2.5}
   m_EdgeRadius: 0
+--- !u!95 &2439096149008804265
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736919179545354129}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 90aa6dda6964aec44abae164b6963181, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
