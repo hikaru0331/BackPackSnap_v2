@@ -383,6 +383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lineRenderer: {fileID: 642163441}
   mainCamera: {fileID: 146234996}
+  mouseBurstPrefab: {fileID: 4814603126784118476, guid: 8e54d46edf57fdd429d09f3119dc1732, type: 3}
 --- !u!120 &642163441
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -431,14 +432,32 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 0.106063604
+        time: 0.009899139
+        value: 0.015151739
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.50064844
+        value: 0.09964292
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 0.015838211
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -635,6 +654,7 @@ MonoBehaviour:
   enemyGeneratorObj: {fileID: 1418462109}
   playingCanvas: {fileID: 1747673271}
   gameOverCanvas: {fileID: 1895852050}
+  mouseEffectManager: {fileID: 642163439}
 --- !u!1 &990419642
 GameObject:
   m_ObjectHideFlags: 0

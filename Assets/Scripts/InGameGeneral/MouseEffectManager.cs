@@ -6,6 +6,11 @@ public class MouseEffectManager : MonoBehaviour
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private Camera mainCamera;
 
+    //パーティクルのプレハブを入れる変数
+    [SerializeField] private GameObject mouseBurstPrefab;
+    //インスタンスされたパーティクルを入れる変数
+    private GameObject mouseBurst;
+
     private int posCount = 0;
     private float interval = 0.1f;
 
@@ -29,6 +34,10 @@ public class MouseEffectManager : MonoBehaviour
         {
             posCount = 0;
             lineRenderer.enabled = false;
+
+            //プレハブを生成し、変数に代入→代入されたパーティクルを0.5秒後に破壊
+            mouseBurst = Instantiate(mouseBurstPrefab, mousePos, Quaternion.identity);
+            Destroy(mouseBurst, 0.5f);
         }
             
     }
