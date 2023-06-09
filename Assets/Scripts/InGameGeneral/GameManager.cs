@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
 
     //”j‰ó‚·‚é’Êsl‚ğ“ü‚ê‚é•Ï”
     public static GameObject destroyEnemy;
+    Rigidbody2D destroyRigidbody;
 
     // Start is called before the first frame update
     void Start()
@@ -55,12 +56,15 @@ public class GameManager : MonoBehaviour
                 if (hit.collider.tag == "Pedestrian")
                 {
                     destroyEnemy = hit.collider.gameObject;
+
+                    destroyRigidbody = hit.collider.GetComponent<Rigidbody2D>();
                 }
                                 
                  if (hit.collider.tag == "Cycle")
                 {
                     destroyEnemy = hit.collider.gameObject;
 
+                    destroyRigidbody = hit.collider.GetComponent<Rigidbody2D>();
                 }                
             }
 
@@ -76,8 +80,10 @@ public class GameManager : MonoBehaviour
                 if (destroyEnemy != null)
                 {
                     if (destroyEnemy.tag == "Pedestrian")
-                    {
-                        pedestrian.PedstrianCut();
+                    {                        
+                        destroyRigidbody.velocity = Vector2.zero;
+
+                        pedestrian.PedestrianCut();
                         scoreManager.ScoreIncresePedestrian();
                         //UltlaManager.•àsÒ•ª‚Ì•KØ‹ZƒQ[ƒW‰ÁZ‚Ì‚½‚ß‚ÌŠÖ”();
 
@@ -85,7 +91,9 @@ public class GameManager : MonoBehaviour
                     }
                     else if (destroyEnemy.tag == "Cycle")
                     {
-                        pedestrian.PedstrianCut();
+                        destroyRigidbody.velocity = Vector2.zero;
+
+                        cycle.CycleCut();
                         scoreManager.ScoreIncreseCycle();
                         //UltlaManager.•àsÒ•ª‚Ì•KØ‹ZƒQ[ƒW‰ÁZ‚Ì‚½‚ß‚ÌŠÖ”();
 
