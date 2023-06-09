@@ -18,6 +18,8 @@ public class TimeManager : MonoBehaviour
     public GameObject playingCanvas;
     public GameObject gameOverCanvas;
 
+    public GameObject mouseEffectManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,8 +57,10 @@ public class TimeManager : MonoBehaviour
                 Destroy(enemies);
             }
 
-            //UIの切り替え処理
+            //UIとマウスエフェクト切り替え処理
             playingCanvas.SetActive(false);
+            mouseEffectManager.SetActive(false);
+
             gameOverCanvas.SetActive(true);
 
         }
