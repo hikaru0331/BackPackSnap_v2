@@ -11,6 +11,8 @@ public class RuralGameStarter : MonoBehaviour
     public GameObject enemyGenerator;
     public GameObject scoreManager;
     public GameObject timeManager;
+    public GameObject mouseEffectManager;
+    public GameObject road;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +32,8 @@ public class RuralGameStarter : MonoBehaviour
             enemyGenerator.SetActive(true);
             scoreManager.SetActive(true);
             timeManager.SetActive(true);
+            mouseEffectManager.SetActive(true);
+            road.SetActive(true);
         }
     }
 

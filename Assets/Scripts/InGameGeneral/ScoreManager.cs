@@ -27,7 +27,7 @@ public class ScoreManager : MonoBehaviour
         score += 1000;
         destroyCount++;
 
-        Destroy(GameManager.destroyEnemy);
+        Destroy(GameManager.destroyEnemy, 1.0f);
     }
     public void ScoreDecresePedestrian()
     {
@@ -41,7 +41,7 @@ public class ScoreManager : MonoBehaviour
         score += 5000;
         destroyCount++;
 
-        Destroy(GameManager.destroyEnemy);
+        Destroy(GameManager.destroyEnemy, 1.0f);
     }
     public void ScoreDecreseCycle()
     {

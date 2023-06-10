@@ -8,16 +8,24 @@ using static UnityEngine.EventSystems.EventTrigger;
 public class TimeManager : MonoBehaviour
 {
     public Text timerText;
-    private float timeCounter = 60.0f;
+    [System.NonSerialized] public float defaultTimeCounter = 30.0f ;
+    private float timeCounter;
+
+    //EnemyGeneratorのオブジェクトとクラスを取得
+    public GameObject enemyGeneratorObj;
+    EnemyGenerator enemyGenerator;
 
     public GameObject playingCanvas;
     public GameObject gameOverCanvas;
 
+    public GameObject mouseEffectManager;
+    public GameObject road;
 
     // Start is called before the first frame update
     void Start()
     {
-                
+        timeCounter = defaultTimeCounter;
+        enemyGenerator = enemyGeneratorObj.GetComponent<EnemyGenerator>();
     }
 
     // Update is called once per frame
@@ -26,6 +34,11 @@ public class TimeManager : MonoBehaviour
         timeCounter -= Time.deltaTime;
 
         timerText.text = "Time: " + timeCounter.ToString("f2");
+
+        if (timeCounter <= defaultTimeCounter / 2)
+        {
+            enemyGenerator.SetInterval();
+        }
 
         if (timeCounter <= 0.0f)
         {
@@ -45,8 +58,11 @@ public class TimeManager : MonoBehaviour
                 Destroy(enemies);
             }
 
-            //UIの切り替え処理
+            //UIとマウスエフェクト切り替え処理
             playingCanvas.SetActive(false);
+            mouseEffectManager.SetActive(false);
+            road.SetActive(false);
+
             gameOverCanvas.SetActive(true);
 
         }
