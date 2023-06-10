@@ -19,6 +19,7 @@ public class TimeManager : MonoBehaviour
     public GameObject gameOverCanvas;
 
     public GameObject mouseEffectManager;
+    public GameObject road;
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +61,7 @@ public class TimeManager : MonoBehaviour
             //UIとマウスエフェクト切り替え処理
             playingCanvas.SetActive(false);
             mouseEffectManager.SetActive(false);
+            road.SetActive(false);
 
             gameOverCanvas.SetActive(true);
 
