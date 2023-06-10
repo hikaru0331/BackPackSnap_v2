@@ -21,7 +21,8 @@ public class GameManager : MonoBehaviour
 
     //”j‰ó‚·‚é’Êsl‚ğ“ü‚ê‚é•Ï”
     public static GameObject destroyEnemy;
-    public static Rigidbody2D destroyRigidbody;
+    private Rigidbody2D destroyRigidbody;
+    private BoxCollider2D destroyCollider;
 
     // Start is called before the first frame update
     void Start()
@@ -53,7 +54,9 @@ public class GameManager : MonoBehaviour
                     destroyEnemy = hit.collider.gameObject;
 
                     destroyRigidbody = hit.collider.GetComponent<Rigidbody2D>();
-                    destroyRigidbody.velocity = Vector2.zero;
+
+                    destroyCollider = hit.collider.GetComponent<BoxCollider2D>();
+                    destroyCollider.enabled = false;
                 }
                                 
                  if (hit.collider.tag == "Cycle")
@@ -61,7 +64,9 @@ public class GameManager : MonoBehaviour
                     destroyEnemy = hit.collider.gameObject;
 
                     destroyRigidbody = hit.collider.GetComponent<Rigidbody2D>();
-                    destroyRigidbody.velocity = Vector2.zero;
+
+                    destroyCollider = hit.collider.GetComponent<BoxCollider2D>();
+                    destroyCollider.enabled = false;
                 }                
             }
 
@@ -85,6 +90,8 @@ public class GameManager : MonoBehaviour
                         //UltlaManager.•àsÒ•ª‚Ì•KØ‹ZƒQ[ƒW‰ÁZ‚Ì‚½‚ß‚ÌŠÖ”();
 
                         destroyEnemy = null;
+                        destroyRigidbody = null;
+                        destroyCollider = null;
                     }
                     else if (destroyEnemy.tag == "Cycle")
                     {
@@ -95,6 +102,8 @@ public class GameManager : MonoBehaviour
                         //UltlaManager.•àsÒ•ª‚Ì•KØ‹ZƒQ[ƒW‰ÁZ‚Ì‚½‚ß‚ÌŠÖ”();
 
                         destroyEnemy = null;
+                        destroyRigidbody = null;
+                        destroyCollider = null;
                     }
                 }                               
             }
