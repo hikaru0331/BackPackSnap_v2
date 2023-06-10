@@ -15,15 +15,4 @@ public class Pedestrian : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(0, pedSpeed);
     }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        
-    }
-
-    public void PedestrianCut()
-    {
-        //ここでアニメーションを制御するメソッドを呼び出す
-    }
 }

@@ -14,16 +14,5 @@ public class Cycle : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(0, cycleSpeed);
-    }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        transform.position += Vector3.up * cycleSpeed * Time.deltaTime;
-    }
-
-    public void CycleCut()
-    {
-        //ここでアニメーションを制御するメソッドを呼び出す
-    }
+    }    
 }
