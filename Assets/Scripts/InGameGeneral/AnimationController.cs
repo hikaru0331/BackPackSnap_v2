@@ -7,6 +7,9 @@ public class AnimationController : MonoBehaviour
     public Animator pedestrianAnimator;
     public Animator cycleAnimator;
 
+    public Animator pedestrianLeatherAnimator;
+    public Animator cycleLeatherAnimator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +22,7 @@ public class AnimationController : MonoBehaviour
 
     }
 
+    //通常通行人のアニメーション変更
     public void PedestrianCut()
     {
         pedestrianAnimator = GameManager.destroyEnemy.GetComponent<Animator>();
@@ -31,5 +35,20 @@ public class AnimationController : MonoBehaviour
         cycleAnimator = GameManager.destroyEnemy.GetComponent<Animator>();
 
         cycleAnimator.SetBool("isCut", true);
+    }
+
+    //本革通行人のアニメーション変更
+    public void PedestrianLeatherCut()
+    {
+        pedestrianLeatherAnimator = GameManager.destroyEnemy.GetComponent<Animator>();
+
+        pedestrianLeatherAnimator.SetBool("isCut", true);
+    }
+
+    public void CycleLeatherCut()
+    {
+        cycleLeatherAnimator = GameManager.destroyEnemy.GetComponent<Animator>();
+
+        cycleLeatherAnimator.SetBool("isCut", true);
     }
 }

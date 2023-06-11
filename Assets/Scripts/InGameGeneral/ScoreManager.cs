@@ -63,7 +63,7 @@ public class ScoreManager : MonoBehaviour
     //本革歩行者に関するスコア
     public void ScoreIncresePedestrianLeather()
     {
-        animationController.PedestrianCut();
+        animationController.PedestrianLeatherCut();
 
         score += 1000;
         destroyCount++;
@@ -80,7 +80,7 @@ public class ScoreManager : MonoBehaviour
     //本革自転車に関するスコア
     public void ScoreIncreseCycleLeather()
     {
-        animationController.CycleCut();
+        animationController.CycleLeatherCut();
 
         score += 5000;
         destroyCount++;
