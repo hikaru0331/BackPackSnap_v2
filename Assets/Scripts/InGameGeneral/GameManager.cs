@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour
                         destroyCollider = null;
                     }
 
-                    else if (destroyEnemy.tag == "Cycle")
+                    if (destroyEnemy.tag == "Cycle")
                     {
                         destroyRigidbody.velocity = Vector2.zero;
                                                 
@@ -120,11 +120,11 @@ public class GameManager : MonoBehaviour
                         destroyCollider = null;
                     }
 
-                    else if (destroyEnemy.tag == "PedestrianLeather")
+                    if (destroyEnemy.tag == "PedestrianLeather")
                     {
                         destroyRigidbody.velocity = Vector2.zero;
 
-                        //scoreManager.ScoreIncresePedestrian();
+                        scoreManager.ScoreIncresePedestrianLeather();
                         //UltlaManager.•àsÒ•ª‚Ì•KØ‹ZƒQ[ƒW‰ÁZ‚Ì‚½‚ß‚ÌŠÖ”();
 
                         destroyEnemy = null;
@@ -132,11 +132,11 @@ public class GameManager : MonoBehaviour
                         destroyCollider = null;
                     }
 
-                    else if (destroyEnemy.tag == "CycleLeather")
+                    if (destroyEnemy.tag == "CycleLeather")
                     {
                         destroyRigidbody.velocity = Vector2.zero;
 
-                        //scoreManager.ScoreIncreseCycle();
+                        scoreManager.ScoreIncreseCycleLeather();
                         //UltlaManager.•àsÒ•ª‚Ì•KØ‹ZƒQ[ƒW‰ÁZ‚Ì‚½‚ß‚ÌŠÖ”();
 
                         destroyEnemy = null;

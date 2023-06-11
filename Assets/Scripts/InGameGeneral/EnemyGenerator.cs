@@ -64,7 +64,7 @@ public class EnemyGenerator : MonoBehaviour
             pedInterval = Random.Range(pedRange, 2.0f * pedRange);
         }
 
-        else if (cycleTimer >= cycleInterval)
+        if (cycleTimer >= cycleInterval)
         {
             cycleTimer = 0;
             
@@ -73,7 +73,7 @@ public class EnemyGenerator : MonoBehaviour
             cycleInterval = Random.Range(cycleRange, 1.5f * cycleRange);
         }
 
-        else if (pedLeatherTimer >= pedLeatherInterval)
+        if (pedLeatherTimer >= pedLeatherInterval)
         {
             pedLeatherTimer = 0;
 
@@ -82,7 +82,7 @@ public class EnemyGenerator : MonoBehaviour
             pedLeatherInterval = Random.Range(pedLeatherRange, 2.0f * pedLeatherRange);
         }
 
-        else if (cycleLeatherTimer >= cycleLeatherInterval)
+        if (cycleLeatherTimer >= cycleLeatherInterval)
         {
             cycleLeatherTimer = 0;
 
@@ -99,12 +99,32 @@ public class EnemyGenerator : MonoBehaviour
         {
             GameManager.destroyEnemy = other.gameObject; 
             scoreManager.ScoreDecresePedestrian();
+
+            GameManager.destroyEnemy = null;
         }
 
         if (other.gameObject.tag == "Cycle")
         {
             GameManager.destroyEnemy = other.gameObject;
             scoreManager.ScoreDecreseCycle();
+
+            GameManager.destroyEnemy = null;
+        }
+
+        if (other.gameObject.tag == "PedestrianLeather")
+        {
+            GameManager.destroyEnemy = other.gameObject;
+            scoreManager.ScoreDecresePedestrianLeather();
+
+            GameManager.destroyEnemy = null;
+        }
+
+        if (other.gameObject.tag == "CycleLeather")
+        {
+            GameManager.destroyEnemy = other.gameObject;
+            scoreManager.ScoreDecreseCycleLeather();
+
+            GameManager.destroyEnemy = null;
         }
     }
 
