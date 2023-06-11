@@ -23,7 +23,7 @@ public class ArbanGameStarter : MonoBehaviour
         EnemyGenerator.pedLeatherRange = 1.0f;
         EnemyGenerator.cycleLeatherRange = 3.0f;
 
-        TimeManager.defaultTimeCounter = 30.0f;
+        TimeManager.defaultTimeCounter = 5.0f;
     }
 
     // Update is called once per frame

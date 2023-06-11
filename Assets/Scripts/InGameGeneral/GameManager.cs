@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour
                         destroyCollider = null;
                     }
 
-                    if (destroyEnemy.tag == "Cycle")
+                    else if (destroyEnemy.tag == "Cycle")
                     {
                         destroyRigidbody.velocity = Vector2.zero;
                                                 
@@ -120,7 +120,7 @@ public class GameManager : MonoBehaviour
                         destroyCollider = null;
                     }
 
-                    if (destroyEnemy.tag == "PedestrianLeather")
+                    else if (destroyEnemy.tag == "PedestrianLeather")
                     {
                         destroyRigidbody.velocity = Vector2.zero;
 
@@ -132,7 +132,7 @@ public class GameManager : MonoBehaviour
                         destroyCollider = null;
                     }
 
-                    if (destroyEnemy.tag == "CycleLeather")
+                    else if (destroyEnemy.tag == "CycleLeather")
                     {
                         destroyRigidbody.velocity = Vector2.zero;
 
