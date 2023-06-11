@@ -12,18 +12,26 @@ public class EnemyGenerator : MonoBehaviour
     //通行人参照用変数
     [SerializeField] private GameObject pedestrian;
     [SerializeField] private GameObject cycle;
-       
+    [SerializeField] private GameObject pedestrianLeather;
+    [SerializeField] private GameObject cycleLeather;
+
     //各通行人専用のタイマー
     private float pedTimer;
     private float cycleTimer;
+    private float pedLeatherTimer;
+    private float cycleLeatherTimer;
 
     //通行人ごとのインターバルの変数
     private float pedInterval;
     private float cycleInterval;
+    private float pedLeatherInterval;
+    private float cycleLeatherInterval;
 
     //通行人ごとのインターバルの範囲を入れる変数
     public static float pedRange;
     public static float cycleRange;
+    public static float pedLeatherRange;
+    public static float cycleLeatherRange;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +40,9 @@ public class EnemyGenerator : MonoBehaviour
 
         pedInterval = Random.Range(pedRange, 2 * pedRange);
         cycleInterval = Random.Range(cycleRange, 2 * cycleRange);
+
+        pedLeatherInterval = Random.Range(pedLeatherRange, 2 * pedLeatherRange);
+        cycleLeatherInterval = Random.Range(cycleLeatherRange, 2 * cycleLeatherRange);
     }
 
     // Update is called once per frame
@@ -59,6 +70,25 @@ public class EnemyGenerator : MonoBehaviour
 
             cycleInterval = Random.Range(cycleRange, 1.5f * cycleRange);
         }
+
+        if (pedLeatherTimer >= pedLeatherInterval)
+        {
+            pedLeatherTimer = 0;
+
+            Instantiate(pedestrianLeather, new Vector3(position, -6.5f, 0), Quaternion.identity);
+
+            pedLeatherInterval = Random.Range(pedLeatherRange, 2.0f * pedLeatherRange);
+        }
+
+        if (cycleLeatherTimer >= cycleLeatherInterval)
+        {
+            cycleLeatherTimer = 0;
+
+            Instantiate(cycleLeather, new Vector3(position, -6.5f, 0), Quaternion.identity);
+
+            cycleLeatherInterval = Random.Range(cycleLeatherRange, 1.5f * cycleLeatherRange);
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)

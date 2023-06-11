@@ -1093,6 +1093,8 @@ MonoBehaviour:
   scoreManagerObj: {fileID: 2142404457}
   pedestrian: {fileID: 1974751667044654735, guid: 825feb27942eb4b478ad5ce5c7b8a67b, type: 3}
   cycle: {fileID: 736919179545354129, guid: 81062ff8891b3a44db01085e9efc0f10, type: 3}
+  pedestrianLeather: {fileID: 1974751667044654735, guid: 54259ddb17ab455499fb84da1890db38, type: 3}
+  cycleLeather: {fileID: 736919179545354129, guid: ecad3290d7461014db5c94dc073d2571, type: 3}
 --- !u!61 &1418462112
 BoxCollider2D:
   m_ObjectHideFlags: 0
