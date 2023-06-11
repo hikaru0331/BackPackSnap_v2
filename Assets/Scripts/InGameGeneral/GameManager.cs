@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviour
 {
@@ -50,8 +51,7 @@ public class GameManager : MonoBehaviour
 
                     destroyRigidbody = hit.collider.GetComponent<Rigidbody2D>();
 
-                    destroyCollider = hit.collider.GetComponent<BoxCollider2D>();
-                    destroyCollider.enabled = false;
+                    destroyCollider = hit.collider.GetComponent<BoxCollider2D>();                    
                 }
                                 
                 else if (hit.collider.tag == "Cycle")
@@ -61,7 +61,6 @@ public class GameManager : MonoBehaviour
                     destroyRigidbody = hit.collider.GetComponent<Rigidbody2D>();
 
                     destroyCollider = hit.collider.GetComponent<BoxCollider2D>();
-                    destroyCollider.enabled = false;
                 }
 
                 else if (hit.collider.tag == "PedestrianLeather")
@@ -71,7 +70,6 @@ public class GameManager : MonoBehaviour
                     destroyRigidbody = hit.collider.GetComponent<Rigidbody2D>();
 
                     destroyCollider = hit.collider.GetComponent<BoxCollider2D>();
-                    destroyCollider.enabled = false;
                 }
 
                 else if (hit.collider.tag == "CycleLeather")
@@ -81,7 +79,6 @@ public class GameManager : MonoBehaviour
                     destroyRigidbody = hit.collider.GetComponent<Rigidbody2D>();
 
                     destroyCollider = hit.collider.GetComponent<BoxCollider2D>();
-                    destroyCollider.enabled = false;
                 }
             }
 
@@ -103,6 +100,8 @@ public class GameManager : MonoBehaviour
                         scoreManager.ScoreIncresePedestrian();
                         //UltlaManager.•àsÒ•ª‚Ì•KØ‹ZƒQ[ƒW‰ÁZ‚Ì‚½‚ß‚ÌŠÖ”();
 
+                        destroyCollider.enabled = false;
+
                         destroyEnemy = null;
                         destroyRigidbody = null;
                         destroyCollider = null;
@@ -115,6 +114,8 @@ public class GameManager : MonoBehaviour
                         scoreManager.ScoreIncreseCycle();
                         //UltlaManager.•àsÒ•ª‚Ì•KØ‹ZƒQ[ƒW‰ÁZ‚Ì‚½‚ß‚ÌŠÖ”();
 
+                        destroyCollider.enabled = false;
+
                         destroyEnemy = null;
                         destroyRigidbody = null;
                         destroyCollider = null;
@@ -122,11 +123,20 @@ public class GameManager : MonoBehaviour
 
                     else if (destroyEnemy.tag == "PedestrianLeather")
                     {
-                        destroyRigidbody.velocity = Vector2.zero;
+                        PedestrianLeather.pedLeatherHP--;
 
-                        scoreManager.ScoreIncresePedestrianLeather();
-                        //UltlaManager.•àsÒ•ª‚Ì•KØ‹ZƒQ[ƒW‰ÁZ‚Ì‚½‚ß‚ÌŠÖ”();
+                        if (PedestrianLeather.pedLeatherHP <= 0)
+                        {
+                            destroyRigidbody.velocity = Vector2.zero;
 
+                            scoreManager.ScoreIncresePedestrianLeather();
+                            //UltlaManager.•àsÒ•ª‚Ì•KØ‹ZƒQ[ƒW‰ÁZ‚Ì‚½‚ß‚ÌŠÖ”();
+
+                            destroyCollider.enabled = false;
+
+                            PedestrianLeather.pedLeatherHP = 2;
+                        }
+                        
                         destroyEnemy = null;
                         destroyRigidbody = null;
                         destroyCollider = null;
@@ -134,11 +144,20 @@ public class GameManager : MonoBehaviour
 
                     else if (destroyEnemy.tag == "CycleLeather")
                     {
-                        destroyRigidbody.velocity = Vector2.zero;
+                        CycleLeather.cycleLeatherHP--;
 
-                        scoreManager.ScoreIncreseCycleLeather();
-                        //UltlaManager.•àsÒ•ª‚Ì•KØ‹ZƒQ[ƒW‰ÁZ‚Ì‚½‚ß‚ÌŠÖ”();
+                        if (CycleLeather.cycleLeatherHP <= 0)
+                        {
+                            destroyRigidbody.velocity = Vector2.zero;
 
+                            scoreManager.ScoreIncreseCycleLeather();
+                            //UltlaManager.•àsÒ•ª‚Ì•KØ‹ZƒQ[ƒW‰ÁZ‚Ì‚½‚ß‚ÌŠÖ”();
+
+                            destroyCollider.enabled = false;
+
+                            CycleLeather.cycleLeatherHP = 2;
+                        }
+                        
                         destroyEnemy = null;
                         destroyRigidbody = null;
                         destroyCollider = null;

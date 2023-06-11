@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1974751667044654737}
   - component: {fileID: 1974751667044654736}
-  - component: {fileID: 1974751667044654738}
   - component: {fileID: 7148660786137477238}
   - component: {fileID: -1589210004548458036}
   - component: {fileID: 5459452449115476302}
+  - component: {fileID: -8136494740147746197}
   m_Layer: 6
   m_Name: PedestrianLeather
   m_TagString: PedestrianLeather
@@ -86,18 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1974751667044654738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1974751667044654735}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba65c9c28f37f9d44bb3c30d9c6bf54e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &7148660786137477238
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -164,3 +152,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-8136494740147746197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974751667044654735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5bee82e013b8784289e3cb5d577182d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

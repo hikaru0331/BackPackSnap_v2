@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 736919179545354134}
   - component: {fileID: 736919179545354133}
-  - component: {fileID: 736919179545354132}
   - component: {fileID: 736919179545354131}
   - component: {fileID: 736919179545354130}
   - component: {fileID: 2439096149008804265}
+  - component: {fileID: 4619284283002767789}
   m_Layer: 6
   m_Name: CycleLeather
   m_TagString: CycleLeather
@@ -86,18 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &736919179545354132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 736919179545354129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea50bd565c4147646801755373c4f6a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &736919179545354131
 Rigidbody2D:
   serializedVersion: 4
@@ -164,3 +152,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4619284283002767789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736919179545354129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abc938151aff5d449f67b47950a7716, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

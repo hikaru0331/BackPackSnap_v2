@@ -62,13 +62,17 @@ public class ScoreManager : MonoBehaviour
 
     //本革歩行者に関するスコア
     public void ScoreIncresePedestrianLeather()
-    {
-        animationController.PedestrianLeatherCut();
+    {        
+        if (PedestrianLeather.pedLeatherHP <= 0)
+        {
+            animationController.PedestrianLeatherCut();
 
-        score += 2000;
-        destroyCount++;
+            score += 2000;
+            destroyCount++;
 
-        Destroy(GameManager.destroyEnemy, 1.0f);
+            Destroy(GameManager.destroyEnemy, 1.0f);
+        }
+        
     }
     public void ScoreDecresePedestrianLeather()
     {
@@ -80,12 +84,18 @@ public class ScoreManager : MonoBehaviour
     //本革自転車に関するスコア
     public void ScoreIncreseCycleLeather()
     {
-        animationController.CycleLeatherCut();
+        
 
-        score += 10000;
-        destroyCount++;
+        if(CycleLeather.cycleLeatherHP <= 0)
+        {
+            animationController.CycleLeatherCut();
 
-        Destroy(GameManager.destroyEnemy, 1.0f);
+            score += 10000;
+            destroyCount++;
+
+            Destroy(GameManager.destroyEnemy, 1.0f);
+        }
+                
     }
     public void ScoreDecreseCycleLeather()
     {
