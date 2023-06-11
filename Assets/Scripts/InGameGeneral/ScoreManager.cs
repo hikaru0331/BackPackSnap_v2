@@ -65,14 +65,14 @@ public class ScoreManager : MonoBehaviour
     {
         animationController.PedestrianLeatherCut();
 
-        score += 1000;
+        score += 2000;
         destroyCount++;
 
         Destroy(GameManager.destroyEnemy, 1.0f);
     }
     public void ScoreDecresePedestrianLeather()
     {
-        score -= 1000;
+        score -= 2000;
 
         Destroy(GameManager.destroyEnemy);
     }
@@ -82,14 +82,14 @@ public class ScoreManager : MonoBehaviour
     {
         animationController.CycleLeatherCut();
 
-        score += 5000;
+        score += 10000;
         destroyCount++;
 
         Destroy(GameManager.destroyEnemy, 1.0f);
     }
     public void ScoreDecreseCycleLeather()
     {
-        score -= 5000;
+        score -= 10000;
 
         Destroy(GameManager.destroyEnemy);
     }
