@@ -52,10 +52,24 @@ public class SceneStateManager : MonoBehaviour
         SceneManager.LoadScene("RuralInGame");
     }
 
+    public void LoadArbanInGame()
+    {
+        //スコアなどを初期化する
+        ScoreManager.score = 0;
+        ScoreManager.destroyCount = 0;
+
+        SceneManager.LoadScene("ArbanInGame");
+    }
+
 
     //以下Resultシーンをロードするメソッド
     public void LoadRuralResult()
     {
         SceneManager.LoadScene("RuralResult");
+    }
+
+    public void LoadArbanResult()
+    {
+        SceneManager.LoadScene("ArbanResult");
     }
 }

@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Rulals/RuralResult.unity
     guid: 70041fbe38210324080e6a80e003f869
+  - enabled: 1
+    path: Assets/Scenes/Arbans/ArbanInGame.unity
+    guid: bb8937cccf1544d4281864015a654615
+  - enabled: 1
+    path: Assets/Scenes/Arbans/ArbanResult.unity
+    guid: 4d15a01b6ed48a348961fc7728cff0eb
   m_configObjects: {}
