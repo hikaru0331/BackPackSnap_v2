@@ -64,16 +64,16 @@ public class EnemyGenerator : MonoBehaviour
             pedInterval = Random.Range(pedRange, 2.0f * pedRange);
         }
 
-        if (cycleTimer >= cycleInterval)
+        else if (cycleTimer >= cycleInterval)
         {
             cycleTimer = 0;
-
+            
             Instantiate(cycle, new Vector3(position, -6.5f, 0), Quaternion.identity);
-
+            
             cycleInterval = Random.Range(cycleRange, 1.5f * cycleRange);
         }
 
-        if (pedLeatherTimer >= pedLeatherInterval)
+        else if (pedLeatherTimer >= pedLeatherInterval)
         {
             pedLeatherTimer = 0;
 
@@ -82,7 +82,7 @@ public class EnemyGenerator : MonoBehaviour
             pedLeatherInterval = Random.Range(pedLeatherRange, 2.0f * pedLeatherRange);
         }
 
-        if (cycleLeatherTimer >= cycleLeatherInterval)
+        else if (cycleLeatherTimer >= cycleLeatherInterval)
         {
             cycleLeatherTimer = 0;
 

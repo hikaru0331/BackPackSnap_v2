@@ -5,7 +5,7 @@ using UnityEngine;
 public class Cycle : MonoBehaviour
 {
     //自転車のスピード
-    private float cycleSpeed = 3.5f;
+    private float cycleSpeed = 4.0f;
 
     private Rigidbody2D rb;
 

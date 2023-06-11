@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
                     destroyCollider.enabled = false;
                 }
                                 
-                 if (hit.collider.tag == "Cycle")
+                else if (hit.collider.tag == "Cycle")
                 {
                     destroyEnemy = hit.collider.gameObject;
 
@@ -62,7 +62,27 @@ public class GameManager : MonoBehaviour
 
                     destroyCollider = hit.collider.GetComponent<BoxCollider2D>();
                     destroyCollider.enabled = false;
-                }                
+                }
+
+                else if (hit.collider.tag == "PedestrianLeather")
+                {
+                    destroyEnemy = hit.collider.gameObject;
+
+                    destroyRigidbody = hit.collider.GetComponent<Rigidbody2D>();
+
+                    destroyCollider = hit.collider.GetComponent<BoxCollider2D>();
+                    destroyCollider.enabled = false;
+                }
+
+                else if (hit.collider.tag == "CycleLeather")
+                {
+                    destroyEnemy = hit.collider.gameObject;
+
+                    destroyRigidbody = hit.collider.GetComponent<Rigidbody2D>();
+
+                    destroyCollider = hit.collider.GetComponent<BoxCollider2D>();
+                    destroyCollider.enabled = false;
+                }
             }
 
         }
@@ -87,11 +107,36 @@ public class GameManager : MonoBehaviour
                         destroyRigidbody = null;
                         destroyCollider = null;
                     }
+
                     else if (destroyEnemy.tag == "Cycle")
                     {
                         destroyRigidbody.velocity = Vector2.zero;
                                                 
                         scoreManager.ScoreIncreseCycle();
+                        //UltlaManager.•àsÒ•ª‚Ì•KØ‹ZƒQ[ƒW‰ÁZ‚Ì‚½‚ß‚ÌŠÖ”();
+
+                        destroyEnemy = null;
+                        destroyRigidbody = null;
+                        destroyCollider = null;
+                    }
+
+                    else if (destroyEnemy.tag == "PedestrianLeather")
+                    {
+                        destroyRigidbody.velocity = Vector2.zero;
+
+                        //scoreManager.ScoreIncresePedestrian();
+                        //UltlaManager.•àsÒ•ª‚Ì•KØ‹ZƒQ[ƒW‰ÁZ‚Ì‚½‚ß‚ÌŠÖ”();
+
+                        destroyEnemy = null;
+                        destroyRigidbody = null;
+                        destroyCollider = null;
+                    }
+
+                    else if (destroyEnemy.tag == "CycleLeather")
+                    {
+                        destroyRigidbody.velocity = Vector2.zero;
+
+                        //scoreManager.ScoreIncreseCycle();
                         //UltlaManager.•àsÒ•ª‚Ì•KØ‹ZƒQ[ƒW‰ÁZ‚Ì‚½‚ß‚ÌŠÖ”();
 
                         destroyEnemy = null;
