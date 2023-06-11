@@ -1561,8 +1561,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad4729da414c154cae05238720dacc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pedestrianAnimator: {fileID: 0}
-  cycleAnimator: {fileID: 0}
+  pedestrianAnimator: {fileID: 5459452449115476302, guid: 825feb27942eb4b478ad5ce5c7b8a67b, type: 3}
+  cycleAnimator: {fileID: 2439096149008804265, guid: 81062ff8891b3a44db01085e9efc0f10, type: 3}
+  pedestrianLeatherAnimator: {fileID: 5459452449115476302, guid: 54259ddb17ab455499fb84da1890db38, type: 3}
+  cycleLeatherAnimator: {fileID: 2439096149008804265, guid: ecad3290d7461014db5c94dc073d2571, type: 3}
 --- !u!1 &2054351872
 GameObject:
   m_ObjectHideFlags: 0
