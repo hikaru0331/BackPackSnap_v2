@@ -5,7 +5,7 @@ using UnityEngine;
 public class Pedestrian : MonoBehaviour
 {   
     //歩行者のスピード
-    public static float pedSpeed = 3.0f;
+    private float pedSpeed = 3.0f;
 
     private Rigidbody2D rb;
 

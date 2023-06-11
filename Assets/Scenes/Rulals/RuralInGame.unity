@@ -950,7 +950,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreManagerObj: {fileID: 2142404457}
-  animationControllerObj: {fileID: 1944248955}
 --- !u!1 &1145915532
 GameObject:
   m_ObjectHideFlags: 0
@@ -1560,6 +1559,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aad4729da414c154cae05238720dacc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pedestrianAnimator: {fileID: 0}
+  cycleAnimator: {fileID: 0}
 --- !u!1 &2054351872
 GameObject:
   m_ObjectHideFlags: 0
@@ -1890,3 +1891,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1452626563}
+  animationControllerObj: {fileID: 1944248955}

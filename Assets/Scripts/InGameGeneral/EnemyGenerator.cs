@@ -21,13 +21,17 @@ public class EnemyGenerator : MonoBehaviour
     private float pedInterval;
     private float cycleInterval;
 
+    //通行人ごとのインターバルの範囲を入れる変数
+    public static float pedRange;
+    public static float cycleRange;
+
     // Start is called before the first frame update
     void Start()
     {
         scoreManager = scoreManagerObj.GetComponent<ScoreManager>();
 
-        pedInterval = Random.Range(1.0f, 2.0f);
-        cycleInterval = Random.Range(3.0f, 5.0f);
+        pedInterval = Random.Range(pedRange, 2 * pedRange);
+        cycleInterval = Random.Range(cycleRange, 2 * cycleRange);
     }
 
     // Update is called once per frame
@@ -36,13 +40,15 @@ public class EnemyGenerator : MonoBehaviour
         pedTimer += Time.deltaTime;
         cycleTimer += Time.deltaTime;
 
-        float position = Random.Range(-3.0f, 3.0f);       
+        float position = Random.Range(-3.0f, 3.0f);
 
         if (pedTimer >= pedInterval)
         {
             pedTimer = 0;
 
             Instantiate(pedestrian, new Vector3(position, -6.5f, 0), Quaternion.identity);
+
+            pedInterval = Random.Range(pedRange, 2.0f * pedRange);
         }
 
         if (cycleTimer >= cycleInterval)
@@ -50,6 +56,8 @@ public class EnemyGenerator : MonoBehaviour
             cycleTimer = 0;
 
             Instantiate(cycle, new Vector3(position, -6.5f, 0), Quaternion.identity);
+
+            cycleInterval = Random.Range(cycleRange, 1.5f * cycleRange);
         }
     }
 
@@ -70,8 +78,8 @@ public class EnemyGenerator : MonoBehaviour
 
     public void SetInterval()
     {
-        pedInterval = Random.Range(0.5f, 1.0f);
-        cycleInterval = Random.Range(1.0f, 2.0f);
+        pedRange /= 2.0f;
+        cycleRange /= 2.0f;
     }
 
 }
