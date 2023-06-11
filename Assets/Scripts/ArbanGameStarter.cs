@@ -18,10 +18,10 @@ public class ArbanGameStarter : MonoBehaviour
     void Start()
     {
         EnemyGenerator.pedRange = 1.0f;
-        EnemyGenerator.cycleRange = 3.0f;
+        EnemyGenerator.cycleRange = 4.0f;
 
-        EnemyGenerator.pedLeatherRange = 1.0f;
-        EnemyGenerator.cycleLeatherRange = 3.0f;
+        EnemyGenerator.pedLeatherRange = 3.0f;
+        EnemyGenerator.cycleLeatherRange = 6.0f;
 
         TimeManager.defaultTimeCounter = 30.0f;
     }

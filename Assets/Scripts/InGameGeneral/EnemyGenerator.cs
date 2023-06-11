@@ -132,6 +132,8 @@ public class EnemyGenerator : MonoBehaviour
     {
         pedRange /= 2.0f;
         cycleRange /= 2.0f;
+        pedLeatherRange /= 2.0f;
+        cycleLeatherRange /= 2.0f;
     }
 
 }
