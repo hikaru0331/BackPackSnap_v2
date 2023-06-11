@@ -17,7 +17,10 @@ public class RuralGameStarter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        EnemyGenerator.pedRange = 1.0f;
+        EnemyGenerator.cycleRange = 3.0f;
+
+        TimeManager.defaultTimeCounter = 30.0f;
     }
 
     // Update is called once per frame

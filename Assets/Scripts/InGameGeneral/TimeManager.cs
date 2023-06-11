@@ -8,7 +8,7 @@ using static UnityEngine.EventSystems.EventTrigger;
 public class TimeManager : MonoBehaviour
 {
     public Text timerText;
-    [System.NonSerialized] public float defaultTimeCounter = 30.0f ;
+    [System.NonSerialized] public static float defaultTimeCounter;
     private float timeCounter;
 
     //EnemyGeneratorのオブジェクトとクラスを取得
@@ -20,6 +20,8 @@ public class TimeManager : MonoBehaviour
 
     public GameObject mouseEffectManager;
     public GameObject road;
+
+    private bool isHalfTime = false;
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +39,12 @@ public class TimeManager : MonoBehaviour
 
         if (timeCounter <= defaultTimeCounter / 2)
         {
-            enemyGenerator.SetInterval();
+            if (!isHalfTime)
+            {
+                enemyGenerator.SetInterval();
+                isHalfTime = true;
+            }
+
         }
 
         if (timeCounter <= 0.0f)
@@ -59,6 +66,7 @@ public class TimeManager : MonoBehaviour
             }
 
             //UIとマウスエフェクト切り替え処理
+            enemyGeneratorObj.SetActive(false);
             playingCanvas.SetActive(false);
             mouseEffectManager.SetActive(false);
             road.SetActive(false);

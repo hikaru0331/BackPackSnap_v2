@@ -16,9 +16,6 @@ public class GameManager : MonoBehaviour
     //マウスクリックの始点と終点の座標間の距離を入れる変数
     private float posDistance;
 
-    [SerializeField] private GameObject animationControllerObj;
-    AnimationController animationController;
-
     //破壊する通行人を入れる変数
     public static GameObject destroyEnemy;
     private Rigidbody2D destroyRigidbody;
@@ -28,8 +25,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         scoreManager = scoreManagerObj.GetComponent<ScoreManager>();
-
-        animationController = animationControllerObj.GetComponent<AnimationController>();
     }
 
     // Update is called once per frame
@@ -85,7 +80,6 @@ public class GameManager : MonoBehaviour
                     {                        
                         destroyRigidbody.velocity = Vector2.zero;
 
-                        animationController.PedestrianCut();
                         scoreManager.ScoreIncresePedestrian();
                         //UltlaManager.歩行者分の必切技ゲージ加算のための関数();
 
@@ -96,8 +90,7 @@ public class GameManager : MonoBehaviour
                     else if (destroyEnemy.tag == "Cycle")
                     {
                         destroyRigidbody.velocity = Vector2.zero;
-
-                        animationController.CycleCut();
+                                                
                         scoreManager.ScoreIncreseCycle();
                         //UltlaManager.歩行者分の必切技ゲージ加算のための関数();
 

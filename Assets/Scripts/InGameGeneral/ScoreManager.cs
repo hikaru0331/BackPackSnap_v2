@@ -10,10 +10,14 @@ public class ScoreManager : MonoBehaviour
     public static int score = 0;
     public static int destroyCount = 0;
 
+    //AnimationControllerÇÃéQè∆
+    [SerializeField] private GameObject animationControllerObj;
+    AnimationController animationController;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        animationController = animationControllerObj.GetComponent<AnimationController>();
     }
 
     // Update is called once per frame
@@ -24,6 +28,8 @@ public class ScoreManager : MonoBehaviour
 
     public void ScoreIncresePedestrian()
     {
+        animationController.PedestrianCut();
+
         score += 1000;
         destroyCount++;
 
@@ -38,6 +44,8 @@ public class ScoreManager : MonoBehaviour
 
     public void ScoreIncreseCycle()
     {
+        animationController.CycleCut();
+
         score += 5000;
         destroyCount++;
 
