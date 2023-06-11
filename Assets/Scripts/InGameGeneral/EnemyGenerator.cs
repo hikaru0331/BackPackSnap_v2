@@ -50,6 +50,8 @@ public class EnemyGenerator : MonoBehaviour
     {
         pedTimer += Time.deltaTime;
         cycleTimer += Time.deltaTime;
+        pedLeatherTimer += Time.deltaTime;
+        cycleLeatherTimer += Time.deltaTime;
 
         float position = Random.Range(-3.0f, 3.0f);
 

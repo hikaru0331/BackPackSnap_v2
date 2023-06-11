@@ -20,6 +20,9 @@ public class ArbanGameStarter : MonoBehaviour
         EnemyGenerator.pedRange = 1.0f;
         EnemyGenerator.cycleRange = 3.0f;
 
+        EnemyGenerator.pedLeatherRange = 1.0f;
+        EnemyGenerator.cycleLeatherRange = 3.0f;
+
         TimeManager.defaultTimeCounter = 30.0f;
     }
 
