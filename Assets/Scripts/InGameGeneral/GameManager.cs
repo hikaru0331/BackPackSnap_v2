@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviour
 {
@@ -50,19 +51,35 @@ public class GameManager : MonoBehaviour
 
                     destroyRigidbody = hit.collider.GetComponent<Rigidbody2D>();
 
-                    destroyCollider = hit.collider.GetComponent<BoxCollider2D>();
-                    destroyCollider.enabled = false;
+                    destroyCollider = hit.collider.GetComponent<BoxCollider2D>();                    
                 }
                                 
-                 if (hit.collider.tag == "Cycle")
+                else if (hit.collider.tag == "Cycle")
                 {
                     destroyEnemy = hit.collider.gameObject;
 
                     destroyRigidbody = hit.collider.GetComponent<Rigidbody2D>();
 
                     destroyCollider = hit.collider.GetComponent<BoxCollider2D>();
-                    destroyCollider.enabled = false;
-                }                
+                }
+
+                else if (hit.collider.tag == "PedestrianLeather")
+                {
+                    destroyEnemy = hit.collider.gameObject;
+
+                    destroyRigidbody = hit.collider.GetComponent<Rigidbody2D>();
+
+                    destroyCollider = hit.collider.GetComponent<BoxCollider2D>();
+                }
+
+                else if (hit.collider.tag == "CycleLeather")
+                {
+                    destroyEnemy = hit.collider.gameObject;
+
+                    destroyRigidbody = hit.collider.GetComponent<Rigidbody2D>();
+
+                    destroyCollider = hit.collider.GetComponent<BoxCollider2D>();
+                }
             }
 
         }
@@ -83,16 +100,67 @@ public class GameManager : MonoBehaviour
                         scoreManager.ScoreIncresePedestrian();
                         //UltlaManager.ï‡çsé“ï™ÇÃïKêÿãZÉQÅ[ÉWâ¡éZÇÃÇΩÇﬂÇÃä÷êî();
 
+                        destroyCollider.enabled = false;
+
                         destroyEnemy = null;
                         destroyRigidbody = null;
                         destroyCollider = null;
                     }
+
                     else if (destroyEnemy.tag == "Cycle")
                     {
                         destroyRigidbody.velocity = Vector2.zero;
                                                 
                         scoreManager.ScoreIncreseCycle();
                         //UltlaManager.ï‡çsé“ï™ÇÃïKêÿãZÉQÅ[ÉWâ¡éZÇÃÇΩÇﬂÇÃä÷êî();
+
+                        destroyCollider.enabled = false;
+
+                        destroyEnemy = null;
+                        destroyRigidbody = null;
+                        destroyCollider = null;
+                    }
+
+                    else if (destroyEnemy.tag == "PedestrianLeather")
+                    {
+                        scoreManager.ScoreIncresePedestrianLeather();
+
+                        if (destroyEnemy.name == "PedLeather_Damaged")
+                        {
+                            destroyRigidbody.velocity = Vector2.zero;
+
+                            //UltlaManager.ñ{ävï‡çsé“ï™ÇÃïKêÿãZÉQÅ[ÉWâ¡éZÇÃÇΩÇﬂÇÃä÷êî();
+
+                            destroyCollider.enabled = false;
+                        }
+
+                        if (destroyEnemy.name == "PedestrianLeather(Clone)")
+                        {
+                            destroyEnemy.name = "PedLeather_Damaged";
+                        }
+                        
+                        destroyEnemy = null;
+                        destroyRigidbody = null;
+                        destroyCollider = null;
+                    }
+
+                    else if (destroyEnemy.tag == "CycleLeather")
+                    {
+                        scoreManager.ScoreIncreseCycleLeather();
+
+                        if (destroyEnemy.name == "CycleLeather_Damaged")
+                        {
+                            destroyRigidbody.velocity = Vector2.zero;
+
+                            //UltlaManager.ñ{ävé©ì]é‘ï™ÇÃïKêÿãZÉQÅ[ÉWâ¡éZÇÃÇΩÇﬂÇÃä÷êî();
+
+                            destroyCollider.enabled = false;
+                        }
+
+                        if (destroyEnemy.name == "CycleLeather(Clone)")
+                        {
+                            destroyEnemy.name = "CycleLeather_Damaged";
+                        }
 
                         destroyEnemy = null;
                         destroyRigidbody = null;

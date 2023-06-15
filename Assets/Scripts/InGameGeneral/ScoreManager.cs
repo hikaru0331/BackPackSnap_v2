@@ -26,6 +26,7 @@ public class ScoreManager : MonoBehaviour
         scoreText.text = "Score: " + score.ToString();
     }
 
+    //通常歩行者に関するスコア
     public void ScoreIncresePedestrian()
     {
         animationController.PedestrianCut();
@@ -42,6 +43,7 @@ public class ScoreManager : MonoBehaviour
         Destroy(GameManager.destroyEnemy);
     }
 
+    //通常自転車に関するスコア
     public void ScoreIncreseCycle()
     {
         animationController.CycleCut();
@@ -54,6 +56,47 @@ public class ScoreManager : MonoBehaviour
     public void ScoreDecreseCycle()
     {
         score -= 5000;
+
+        Destroy(GameManager.destroyEnemy);
+    }
+
+    //本革歩行者に関するスコア
+    public void ScoreIncresePedestrianLeather()
+    {
+        animationController.PedestrianLeatherCut();
+
+        if (GameManager.destroyEnemy.name == "PedLeather_Damaged")
+        {
+            score += 2000;
+            destroyCount++;
+
+            Destroy(GameManager.destroyEnemy, 1.0f);
+        }
+        
+    }
+    public void ScoreDecresePedestrianLeather()
+    {
+        score -= 2000;
+
+        Destroy(GameManager.destroyEnemy);
+    }
+
+    //本革自転車に関するスコア
+    public void ScoreIncreseCycleLeather()
+    {
+        animationController.CycleLeatherCut();
+
+        if (GameManager.destroyEnemy.name == "CycleLeather_Damaged")
+        {
+            score += 10000;
+            destroyCount++;
+
+            Destroy(GameManager.destroyEnemy, 1.0f);
+        }                
+    }
+    public void ScoreDecreseCycleLeather()
+    {
+        score -= 10000;
 
         Destroy(GameManager.destroyEnemy);
     }

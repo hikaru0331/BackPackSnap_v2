@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cycle : MonoBehaviour
+public class CycleLeather : MonoBehaviour
 {
     //自転車のスピード
     private float cycleSpeed = 4.0f;
