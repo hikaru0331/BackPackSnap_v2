@@ -8,8 +8,8 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
-    m_ConditionEvent: cutCount
+  - m_ConditionMode: 1
+    m_ConditionEvent: isCut2
     m_EventTreshold: 2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1855048397538547161}
@@ -33,8 +33,8 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 6
-    m_ConditionEvent: cutCount
+  - m_ConditionMode: 1
+    m_ConditionEvent: isCut1
     m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8617946450385686772}
@@ -139,14 +139,14 @@ AnimatorController:
   m_Name: PedestrianLeather
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: isCut
+  - m_Name: isCut1
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: cutCount
-    m_Type: 3
+  - m_Name: isCut2
+    m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0

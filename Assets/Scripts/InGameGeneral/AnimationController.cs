@@ -10,9 +10,6 @@ public class AnimationController : MonoBehaviour
     public Animator pedestrianLeatherAnimator;
     public Animator cycleLeatherAnimator;
 
-    private int pedLeatherCutCount = 0;
-    private int cycleLeatherCutCount = 0;
-
     //通常通行人のアニメーション変更
     public void PedestrianCut()
     {
@@ -33,12 +30,11 @@ public class AnimationController : MonoBehaviour
     {
         pedestrianLeatherAnimator = GameManager.destroyEnemy.GetComponent<Animator>();
 
-        pedLeatherCutCount++;
-        pedestrianLeatherAnimator.SetInteger("cutCount", pedLeatherCutCount);
+        pedestrianLeatherAnimator.SetBool ("isCut1", true);
 
-        if (pedLeatherCutCount >= 2)
+        if (GameManager.destroyEnemy.name == "PedLeather_Damaged")
         {
-            pedLeatherCutCount = 0;
+            pedestrianLeatherAnimator.SetBool("isCut2", true);
         }
     }
 
@@ -46,12 +42,11 @@ public class AnimationController : MonoBehaviour
     {
         cycleLeatherAnimator = GameManager.destroyEnemy.GetComponent<Animator>();
 
-        cycleLeatherCutCount++;
-        cycleLeatherAnimator.SetInteger("cutCount", cycleLeatherCutCount);
+        cycleLeatherAnimator.SetBool("isCut1", true);
 
-        if (cycleLeatherCutCount >= 2)
+        if (GameManager.destroyEnemy.name == "CycleLeather_Damaged")
         {
-            cycleLeatherCutCount = 0;
+            cycleLeatherAnimator.SetBool("isCut2", true);
         }
     }
 }

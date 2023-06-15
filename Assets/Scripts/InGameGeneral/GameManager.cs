@@ -123,16 +123,20 @@ public class GameManager : MonoBehaviour
 
                     else if (destroyEnemy.tag == "PedestrianLeather")
                     {
-                        destroyEnemy.name = "PedLeather_Damaged";      
+                        scoreManager.ScoreIncresePedestrianLeather();
 
                         if (destroyEnemy.name == "PedLeather_Damaged")
                         {
                             destroyRigidbody.velocity = Vector2.zero;
-                            scoreManager.ScoreIncresePedestrianLeather();
 
-                            //UltlaManager.•àsÒ•ª‚Ì•KØ‹ZƒQ[ƒW‰ÁZ‚Ì‚½‚ß‚ÌŠÖ”();
+                            //UltlaManager.–{Šv•àsÒ•ª‚Ì•KØ‹ZƒQ[ƒW‰ÁZ‚Ì‚½‚ß‚ÌŠÖ”();
 
                             destroyCollider.enabled = false;
+                        }
+
+                        if (destroyEnemy.name == "PedestrianLeather(Clone)")
+                        {
+                            destroyEnemy.name = "PedLeather_Damaged";
                         }
                         
                         destroyEnemy = null;
@@ -144,18 +148,20 @@ public class GameManager : MonoBehaviour
                     {
                         scoreManager.ScoreIncreseCycleLeather();
 
-                        /*
-                        if (CycleLeather.cycleLeatherHP == 0)
+                        if (destroyEnemy.name == "CycleLeather_Damaged")
                         {
                             destroyRigidbody.velocity = Vector2.zero;
 
-                            //UltlaManager.•àsÒ•ª‚Ì•KØ‹ZƒQ[ƒW‰ÁZ‚Ì‚½‚ß‚ÌŠÖ”();
+                            //UltlaManager.–{Šv©“]Ô•ª‚Ì•KØ‹ZƒQ[ƒW‰ÁZ‚Ì‚½‚ß‚ÌŠÖ”();
 
                             destroyCollider.enabled = false;
+                        }
 
-                            CycleLeather.cycleLeatherHP = 2;
-                        }*/
-                        
+                        if (destroyEnemy.name == "CycleLeather(Clone)")
+                        {
+                            destroyEnemy.name = "CycleLeather_Damaged";
+                        }
+
                         destroyEnemy = null;
                         destroyRigidbody = null;
                         destroyCollider = null;
