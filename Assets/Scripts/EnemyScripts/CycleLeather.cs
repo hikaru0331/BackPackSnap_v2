@@ -7,8 +7,6 @@ public class CycleLeather : MonoBehaviour
     //自転車のスピード
     private float cycleSpeed = 4.0f;
 
-    [System.NonSerialized] public static int cycleLeatherHP = 2;
-
     private Rigidbody2D rb;
 
     // Start is called before the first frame update

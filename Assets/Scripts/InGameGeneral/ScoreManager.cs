@@ -65,14 +65,10 @@ public class ScoreManager : MonoBehaviour
     {
         animationController.PedestrianLeatherCut();
 
-        if (PedestrianLeather.pedLeatherHP == 0)
-        {
-            Debug.Log("ped");
-            score += 2000;
-            destroyCount++;
-
-            Destroy(GameManager.destroyEnemy, 1.0f);
-        }
+        score += 2000;
+        destroyCount++;
+        
+        Destroy(GameManager.destroyEnemy, 1.0f);
         
     }
     public void ScoreDecresePedestrianLeather()
@@ -86,15 +82,11 @@ public class ScoreManager : MonoBehaviour
     public void ScoreIncreseCycleLeather()
     {
         animationController.CycleLeatherCut();
-
-        if (CycleLeather.cycleLeatherHP == 0)
-        {
-            Debug.Log("cycle");
-            score += 10000;
-            destroyCount++;
-
-            Destroy(GameManager.destroyEnemy, 1.0f);
-        }
+        
+        score += 10000;
+        destroyCount++;
+        
+        Destroy(GameManager.destroyEnemy, 1.0f);
                 
     }
     public void ScoreDecreseCycleLeather()

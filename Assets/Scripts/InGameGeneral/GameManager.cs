@@ -123,20 +123,16 @@ public class GameManager : MonoBehaviour
 
                     else if (destroyEnemy.tag == "PedestrianLeather")
                     {
-                        destroyEnemy.pedLeatherHP--;
+                        destroyEnemy.name = "PedLeather_Damaged";      
 
-                        //scoreManager.ScoreIncresePedestrianLeather();
-
-                        if (PedestrianLeather.pedLeatherHP == 0)
+                        if (destroyEnemy.name == "PedLeather_Damaged")
                         {
-
                             destroyRigidbody.velocity = Vector2.zero;
+                            scoreManager.ScoreIncresePedestrianLeather();
 
                             //UltlaManager.ï‡çsé“ï™ÇÃïKêÿãZÉQÅ[ÉWâ¡éZÇÃÇΩÇﬂÇÃä÷êî();
 
                             destroyCollider.enabled = false;
-
-                            PedestrianLeather.pedLeatherHP = 2;
                         }
                         
                         destroyEnemy = null;
@@ -146,11 +142,9 @@ public class GameManager : MonoBehaviour
 
                     else if (destroyEnemy.tag == "CycleLeather")
                     {
-                        CycleLeather.cycleLeatherHP--;
-                        Debug.Log(CycleLeather.cycleLeatherHP--);
-
                         scoreManager.ScoreIncreseCycleLeather();
 
+                        /*
                         if (CycleLeather.cycleLeatherHP == 0)
                         {
                             destroyRigidbody.velocity = Vector2.zero;
@@ -160,7 +154,7 @@ public class GameManager : MonoBehaviour
                             destroyCollider.enabled = false;
 
                             CycleLeather.cycleLeatherHP = 2;
-                        }
+                        }*/
                         
                         destroyEnemy = null;
                         destroyRigidbody = null;

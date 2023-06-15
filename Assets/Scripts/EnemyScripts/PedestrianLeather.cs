@@ -7,8 +7,6 @@ public class PedestrianLeather : MonoBehaviour
     //歩行者のスピード
     private float pedSpeed = 3.0f;
 
-    [System.NonSerialized] public static int pedLeatherHP = 2;
-
     private Rigidbody2D rb;
 
     // Start is called before the first frame update
