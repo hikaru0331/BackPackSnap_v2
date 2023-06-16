@@ -9,6 +9,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject scoreManagerObj;
     ScoreManager scoreManager;
 
+    //AudioManagerを入れる変数
+    [SerializeField] private GameObject audioManagerObj;
+    AudioManager audioManager;
+    //通行人を切ったかどうかで効果音を分けるための変数
+    private bool hasPlayed = false;
+
     //通行人を切ったかどうか判定する変数
     private bool isCut = false;
     //マウスクリックの視点と終点を入れる変数
@@ -26,6 +32,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         scoreManager = scoreManagerObj.GetComponent<ScoreManager>();
+        audioManager = audioManagerObj.GetComponent<AudioManager>();
     }
 
     // Update is called once per frame
@@ -47,10 +54,11 @@ public class GameManager : MonoBehaviour
 
                 if (hit.collider.tag == "Pedestrian")
                 {
+                    //切断したオブジェクトをdestroyEnemyに保存
                     destroyEnemy = hit.collider.gameObject;
 
+                    //destroyEnemyのコンポーネントを取得
                     destroyRigidbody = hit.collider.GetComponent<Rigidbody2D>();
-
                     destroyCollider = hit.collider.GetComponent<BoxCollider2D>();                    
                 }
                                 
@@ -95,13 +103,20 @@ public class GameManager : MonoBehaviour
                 {
                     if (destroyEnemy.tag == "Pedestrian")
                     {                        
+                        //切った通行人を止める処理
                         destroyRigidbody.velocity = Vector2.zero;
 
                         scoreManager.ScoreIncresePedestrian();
                         //UltlaManager.歩行者分の必切技ゲージ加算のための関数();
 
+                        //破壊アニメーション再生時に当たり判定を消す処理
                         destroyCollider.enabled = false;
 
+                        //効果音を鳴らす処理
+                        audioManager.PlayCutSound();
+                        hasPlayed = true;
+
+                        //破壊後にdestroyEnemyの中身を削除する
                         destroyEnemy = null;
                         destroyRigidbody = null;
                         destroyCollider = null;
@@ -116,6 +131,9 @@ public class GameManager : MonoBehaviour
 
                         destroyCollider.enabled = false;
 
+                        audioManager.PlayCutSound();
+                        hasPlayed = true;
+
                         destroyEnemy = null;
                         destroyRigidbody = null;
                         destroyCollider = null;
@@ -125,6 +143,7 @@ public class GameManager : MonoBehaviour
                     {
                         scoreManager.ScoreIncresePedestrianLeather();
 
+                        //ダメージを受けた状態の名前ならば、破壊する処理を行う
                         if (destroyEnemy.name == "PedLeather_Damaged")
                         {
                             destroyRigidbody.velocity = Vector2.zero;
@@ -134,11 +153,15 @@ public class GameManager : MonoBehaviour
                             destroyCollider.enabled = false;
                         }
 
+                        //一回目の切断ならば、ダメージを受けた状態の名前に変更
                         if (destroyEnemy.name == "PedestrianLeather(Clone)")
                         {
                             destroyEnemy.name = "PedLeather_Damaged";
                         }
-                        
+
+                        audioManager.PlayCutSound();
+                        hasPlayed = true;
+
                         destroyEnemy = null;
                         destroyRigidbody = null;
                         destroyCollider = null;
@@ -162,12 +185,22 @@ public class GameManager : MonoBehaviour
                             destroyEnemy.name = "CycleLeather_Damaged";
                         }
 
+                        audioManager.PlayCutSound();
+                        hasPlayed = true;
+
                         destroyEnemy = null;
                         destroyRigidbody = null;
                         destroyCollider = null;
                     }
                 }                               
             }
+
+            if (!hasPlayed)
+            {
+                audioManager.PlayCutSound();
+            }
+
+            hasPlayed = false;
 
             //再びカットできるようにする
             isCut = !isCut;
