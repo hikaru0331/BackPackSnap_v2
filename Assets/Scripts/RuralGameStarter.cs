@@ -20,6 +20,9 @@ public class RuralGameStarter : MonoBehaviour
         EnemyGenerator.pedRange = 1.0f;
         EnemyGenerator.cycleRange = 3.0f;
 
+        EnemyGenerator.pedLeatherRange = 100.0f;
+        EnemyGenerator.cycleLeatherRange = 100.0f;
+
         TimeManager.defaultTimeCounter = 30.0f;
     }
 
