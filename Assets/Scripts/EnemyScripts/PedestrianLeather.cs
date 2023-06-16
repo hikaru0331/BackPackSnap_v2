@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pedestrian : MonoBehaviour
+public class PedestrianLeather : MonoBehaviour
 {   
     //歩行者のスピード
     private float pedSpeed = 3.0f;

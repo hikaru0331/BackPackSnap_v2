@@ -8,7 +8,7 @@ using static UnityEngine.EventSystems.EventTrigger;
 public class TimeManager : MonoBehaviour
 {
     public Text timerText;
-    [System.NonSerialized] public float defaultTimeCounter = 30.0f ;
+    [System.NonSerialized] public static float defaultTimeCounter;
     private float timeCounter;
 
     //EnemyGeneratorのオブジェクトとクラスを取得
@@ -20,6 +20,8 @@ public class TimeManager : MonoBehaviour
 
     public GameObject mouseEffectManager;
     public GameObject road;
+
+    private bool isHalfTime = false;
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +39,12 @@ public class TimeManager : MonoBehaviour
 
         if (timeCounter <= defaultTimeCounter / 2)
         {
-            enemyGenerator.SetInterval();
+            if (!isHalfTime)
+            {
+                enemyGenerator.SetInterval();
+                isHalfTime = true;
+            }
+
         }
 
         if (timeCounter <= 0.0f)
@@ -47,6 +54,8 @@ public class TimeManager : MonoBehaviour
             //タグの付いたオブジェクトをそれぞれ配列に代入
             GameObject[] pedestrians = GameObject.FindGameObjectsWithTag("Pedestrian");
             GameObject[] cycles = GameObject.FindGameObjectsWithTag("Cycle");
+            GameObject[] pedestrianLeathers = GameObject.FindGameObjectsWithTag("PedestrianLeather");
+            GameObject[] cycleLeathers = GameObject.FindGameObjectsWithTag("CycleLeather");
 
             //配列enemyに入ったオブジェクトをすべて破壊するまで繰り返す処理
             foreach (GameObject enemies in pedestrians)
@@ -57,8 +66,17 @@ public class TimeManager : MonoBehaviour
             {
                 Destroy(enemies);
             }
+            foreach (GameObject enemies in pedestrianLeathers)
+            {
+                Destroy(enemies);
+            }
+            foreach (GameObject enemies in cycleLeathers)
+            {
+                Destroy(enemies);
+            }
 
             //UIとマウスエフェクト切り替え処理
+            enemyGeneratorObj.SetActive(false);
             playingCanvas.SetActive(false);
             mouseEffectManager.SetActive(false);
             road.SetActive(false);

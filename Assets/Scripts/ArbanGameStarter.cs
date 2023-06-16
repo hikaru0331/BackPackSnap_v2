@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RuralGameStarter : MonoBehaviour
+public class ArbanGameStarter : MonoBehaviour
 {
     public GameObject startCanvas;
     public GameObject playingCanvas;
@@ -18,9 +18,12 @@ public class RuralGameStarter : MonoBehaviour
     void Start()
     {
         EnemyGenerator.pedRange = 1.0f;
-        EnemyGenerator.cycleRange = 3.0f;
+        EnemyGenerator.cycleRange = 4.0f;
 
-        TimeManager.defaultTimeCounter = 30.0f;
+        EnemyGenerator.pedLeatherRange = 3.0f;
+        EnemyGenerator.cycleLeatherRange = 6.0f;
+
+        TimeManager.defaultTimeCounter = 45.0f;
     }
 
     // Update is called once per frame
