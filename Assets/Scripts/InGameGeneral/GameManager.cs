@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     private Vector2 startPos;
     private Vector2 endPos;
     //マウスクリックの始点と終点の座標間の距離を入れる変数
-    private float posDistance;
+    [System.NonSerialized] public static float posDistance;
 
     //破壊する通行人を入れる変数
     public static GameObject destroyEnemy;

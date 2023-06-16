@@ -23,7 +23,8 @@ public class AudioManager : MonoBehaviour
 
     public void PlayCutSound()
     {
-        if (GameManager.destroyEnemy != null)
+        //通行人破壊と同じ条件ならばドゥクシを鳴らす
+        if (GameManager.destroyEnemy != null && GameManager.posDistance > 1.0f)
             audioSource.PlayOneShot(cutSound);
         else
             audioSource.PlayOneShot(cutEmptySound);
