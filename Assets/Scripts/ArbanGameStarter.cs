@@ -13,6 +13,7 @@ public class ArbanGameStarter : MonoBehaviour
     public GameObject timeManager;
     public GameObject mouseEffectManager;
     public GameObject road;
+    public GameObject audioManager;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +41,7 @@ public class ArbanGameStarter : MonoBehaviour
             timeManager.SetActive(true);
             mouseEffectManager.SetActive(true);
             road.SetActive(true);
+            audioManager.SetActive(true);
         }
     }
 

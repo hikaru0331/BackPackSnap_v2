@@ -243,6 +243,7 @@ MonoBehaviour:
   timeManager: {fileID: 1999445607}
   mouseEffectManager: {fileID: 939621157}
   road: {fileID: 657684854}
+  audioManager: {fileID: 524963143}
 --- !u!4 &155054322
 Transform:
   m_ObjectHideFlags: 0
@@ -703,6 +704,10 @@ PrefabInstance:
       propertyPath: timerText
       value: 
       objectReference: {fileID: 986562637}
+    - target: {fileID: 7546513813325340516, guid: 0fc1ffc12c0cfc1478158d8cd049d388, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 524963143}
     - target: {fileID: 7546513813325340516, guid: 0fc1ffc12c0cfc1478158d8cd049d388, type: 3}
       propertyPath: playingCanvas
       value: 

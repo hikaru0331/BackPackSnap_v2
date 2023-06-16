@@ -49,3 +49,4 @@ MonoBehaviour:
   gameOverCanvas: {fileID: 0}
   mouseEffectManager: {fileID: 0}
   road: {fileID: 0}
+  audioManager: {fileID: 0}

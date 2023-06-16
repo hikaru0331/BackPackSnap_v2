@@ -257,6 +257,7 @@ MonoBehaviour:
   timeManager: {fileID: 711321491}
   mouseEffectManager: {fileID: 642163439}
   road: {fileID: 369666211}
+  audioManager: {fileID: 870183033}
 --- !u!1 &369666211 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4820509852183421794, guid: bb8cb758b8e64bc479b0d27ef526d35f, type: 3}
@@ -906,6 +907,10 @@ PrefabInstance:
       propertyPath: timerText
       value: 
       objectReference: {fileID: 695986075}
+    - target: {fileID: 7546513813325340516, guid: 0fc1ffc12c0cfc1478158d8cd049d388, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 870183033}
     - target: {fileID: 7546513813325340516, guid: 0fc1ffc12c0cfc1478158d8cd049d388, type: 3}
       propertyPath: playingCanvas
       value: 

@@ -15,11 +15,13 @@ public class TimeManager : MonoBehaviour
     public GameObject enemyGeneratorObj;
     EnemyGenerator enemyGenerator;
 
+    //ゲーム終了時にオブジェクトを非アクティブにするための変数
     public GameObject playingCanvas;
     public GameObject gameOverCanvas;
 
     public GameObject mouseEffectManager;
     public GameObject road;
+    public GameObject audioManager;
 
     private bool isHalfTime = false;
 
@@ -80,6 +82,7 @@ public class TimeManager : MonoBehaviour
             playingCanvas.SetActive(false);
             mouseEffectManager.SetActive(false);
             road.SetActive(false);
+            audioManager.SetActive(false);
 
             gameOverCanvas.SetActive(true);
 
