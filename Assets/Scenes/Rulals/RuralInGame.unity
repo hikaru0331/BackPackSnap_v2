@@ -1033,6 +1033,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 416127946891586733, guid: 1f2ca438caaa3a048a5563aaa77f8eff, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadRuralResult
+      objectReference: {fileID: 0}
     - target: {fileID: 416127946980812985, guid: 1f2ca438caaa3a048a5563aaa77f8eff, type: 3}
       propertyPath: m_Pivot.x
       value: 0
