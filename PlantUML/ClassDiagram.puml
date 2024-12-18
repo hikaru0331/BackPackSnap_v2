@@ -13,8 +13,8 @@ class RuralGameStarter
 + mouseEffectManager : GameObject
 + road : GameObject
 + audioManager : GameObject
-+ Start()
-+ Update()
+- Start()
+- Update()
 }
 note left of RuralGameStarter::Start
   enemyGeneratorと
@@ -47,8 +47,8 @@ class ArbanGameStarter
 }
 note left of ArbanGameStarter::Start
   enemyGeneratorと
-    TimeManagerの
-    静的変数を初期化
+  TimeManagerの
+  静的変数を初期化
 end note
 note left of ArbanGameStarter::Update
   左クリックで
