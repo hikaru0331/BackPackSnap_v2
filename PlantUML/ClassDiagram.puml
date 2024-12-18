@@ -1,0 +1,203 @@
+@startuml
+hide empty members
+
+class RuralGameStarter
+{
++ startCanvas : GameObject
++ playingCanvas : GameObject
+
++ gameManager : GameObject
++ enemyGenerator : GameObject
++ scoreManager : GameObject
++ timeManager : GameObject
++ mouseEffectManager : GameObject
++ road : GameObject
++ audioManager : GameObject
++ Start()
++ Update()
+}
+note left of RuralGameStarter::Start
+  enemyGeneratorと
+  TimeManagerの
+  静的変数を初期化
+end note
+note left of RuralGameStarter::Update
+  左クリックで
+  各オブジェクトの
+  アクティブ化
+end note
+
+RuralGameStarter --> TimeManager
+RuralGameStarter --> EnemyGenerator
+
+class ArbanGameStarter
+{
++ startCanvas : GameObject
++ playingCanvas : GameObject
+
++ gameManager : GameObject
++ enemyGenerator : GameObject
++ scoreManager : GameObject
++ timeManager : GameObject
++ mouseEffectManager : GameObject
++ road : GameObject
++ audioManager : GameObject
+- Start()
+- Update()
+}
+note left of ArbanGameStarter::Start
+  enemyGeneratorと
+    TimeManagerの
+    静的変数を初期化
+end note
+note left of ArbanGameStarter::Update
+  左クリックで
+  各オブジェクトの
+  アクティブ化
+end note
+
+ArbanGameStarter --> TimeManager
+ArbanGameStarter --> EnemyGenerator
+
+class EnemyGenerator
+{
+- scoreManagerObj : GameObject
+- scoreManager : ScoreManager
+
+- pedestrian : GameObject
+- cycle : GameObject
+- pedestrianLeather : GameObject
+- cycleLeather : GameObject
+
+- pedTimer : float
+- cycleTimer : float
+- pedLeatherTimer : float
+- cycleLeatherTimer : float
+
+- pedInterval : float
+- cycleInterval : float
+- pedLeatherInterval : float
+- cycleLeatherInterval : float
+
++ {static} pedRange : float
++ {static} cycleRange : float
++ {static} pedLeatherRange : float
++ {static} cycleLeatherRange : float
+
+- Start()
+- Update()
+- OnTriggerEnter2D()
++ SetInterval()
+}
+note left of EnemyGenerator::Start
+  ScoreManagerの取得と
+  各Intervalの
+  ランダム設定
+end note
+note left of EnemyGenerator::Update
+  Intervalごとに
+  通行人を生成
+end note
+note left of EnemyGenerator::OnTriggerEnter2D
+  逃した通行人の
+  破壊とスコア減算
+end note
+
+EnemyGenerator --> GameManager
+note right on link
+  OnTriggerEnter2D()内での
+  destroyEnemyの変更
+end note
+EnemyGenerator --> ScoreManager
+note right on link
+  OnTriggerEnter2D()内での
+  ScoreDecrese〇〇()の
+  呼び出し
+end note
+
+class GameManager
+{
+- scoreManagerObj : GameObject
+- scoreManager : ScoreManager
+
+- audioManagerObj : GameObject
+- audioManager : AudioManager
+- hasPlayed : bool
+
+- isCut : bool
+- startPos : Vector2
+- endPos : Vector2
++ {static} posDistance : float
+
++ {static} destroyEnemy : GameObject
+- destroyRigidbody : Rigidbody2D
+- destroyCollider : BoxCollider2D
+
+- Start()
+- Update()
+}
+note left of GameManager::Update
+    左クリックでのリュック切断判定
+    Tag/オブジェクトNameでの判別、
+    Score加算、
+    効果音の再生を担当
+end note
+
+GameManager --> AudioManager
+note right on link
+  Update()内での
+  PlayCutSound()の
+  呼び出し
+end note
+GameManager --> ScoreManager
+note right on link
+  Update()内での
+  ScoreIncrese〇〇()の
+  呼び出し
+end note
+
+class ScoreManager
+{
+
+}
+
+class TimeManager
+{
+
+}
+
+TimeManager --> EnemyGenerator
+note right on link
+  Update()内での
+  SetInterval()の
+  呼び出し
+end note
+
+class MouseEffectManager
+{
+
+}
+
+class AudioManager
+{
+- audioSource : AudioSource
+
++ cutEmptySound : AudioClip
++ cutSound : AudioClip
+
+- Start()
++ PlayCutSound()
+}
+note left of AudioManager::PlayCutSound
+  destroyEnemyが
+  nullかどうかに応じて
+  効果音の再生
+end note
+
+AudioManager --> GameManager
+note right on link
+  PlayCutSound()内での
+  destroyEnemyの参照
+end note
+
+@enduml

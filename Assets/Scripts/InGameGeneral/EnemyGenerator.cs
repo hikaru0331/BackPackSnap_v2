@@ -5,29 +5,29 @@ using UnityEngine.SocialPlatforms;
 
 public class EnemyGenerator : MonoBehaviour
 {
-    //ScoreManager‚ğ“ü‚ê‚é•Ï”
+    //ScoreManagerï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïï¿½
     [SerializeField] private GameObject scoreManagerObj;
     ScoreManager scoreManager;
 
-    //’ÊslQÆ—p•Ï”
+    //ï¿½Êsï¿½lï¿½Qï¿½Æ—pï¿½Ïï¿½
     [SerializeField] private GameObject pedestrian;
     [SerializeField] private GameObject cycle;
     [SerializeField] private GameObject pedestrianLeather;
     [SerializeField] private GameObject cycleLeather;
 
-    //Še’Êslê—p‚Ìƒ^ƒCƒ}[
+    //ï¿½eï¿½Êsï¿½lï¿½ï¿½pï¿½Ìƒ^ï¿½Cï¿½}ï¿½[
     private float pedTimer;
     private float cycleTimer;
     private float pedLeatherTimer;
     private float cycleLeatherTimer;
 
-    //’Êsl‚²‚Æ‚ÌƒCƒ“ƒ^[ƒoƒ‹‚Ì•Ï”
+    //ï¿½Êsï¿½lï¿½ï¿½ï¿½Æ‚ÌƒCï¿½ï¿½ï¿½^ï¿½[ï¿½oï¿½ï¿½ï¿½Ì•Ïï¿½
     private float pedInterval;
     private float cycleInterval;
     private float pedLeatherInterval;
     private float cycleLeatherInterval;
 
-    //’Êsl‚²‚Æ‚ÌƒCƒ“ƒ^[ƒoƒ‹‚Ì”ÍˆÍ‚ğ“ü‚ê‚é•Ï”
+    //ï¿½Êsï¿½lï¿½ï¿½ï¿½Æ‚ÌƒCï¿½ï¿½ï¿½^ï¿½[ï¿½oï¿½ï¿½ï¿½Ì”ÍˆÍ‚ï¿½ï¿½ï¿½ï¿½ï¿½Ïï¿½
     public static float pedRange;
     public static float cycleRange;
     public static float pedLeatherRange;
@@ -97,7 +97,7 @@ public class EnemyGenerator : MonoBehaviour
     {
         if(other.gameObject.tag == "Pedestrian")
         {
-            GameManager.destroyEnemy = other.gameObject; 
+            GameManager.destroyEnemy = other.gameObject;
             scoreManager.ScoreDecresePedestrian();
 
             GameManager.destroyEnemy = null;

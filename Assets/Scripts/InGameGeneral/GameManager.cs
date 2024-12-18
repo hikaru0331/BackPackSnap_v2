@@ -5,25 +5,25 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviour
 {
-    //ScoreManager‚ğ“ü‚ê‚é•Ï”
+    //ScoreManager????????
     [SerializeField] private GameObject scoreManagerObj;
     ScoreManager scoreManager;
 
-    //AudioManager‚ğ“ü‚ê‚é•Ï”
+    //AudioManager????????
     [SerializeField] private GameObject audioManagerObj;
     AudioManager audioManager;
-    //’Êsl‚ğØ‚Á‚½‚©‚Ç‚¤‚©‚ÅŒø‰Ê‰¹‚ğ•ª‚¯‚é‚½‚ß‚Ì•Ï”
+    //??s?l?????????????????????????????
     private bool hasPlayed = false;
 
-    //’Êsl‚ğØ‚Á‚½‚©‚Ç‚¤‚©”»’è‚·‚é•Ï”
+    //??s?l?????????????????????
     private bool isCut = false;
-    //ƒ}ƒEƒXƒNƒŠƒbƒN‚Ì‹“_‚ÆI“_‚ğ“ü‚ê‚é•Ï”
+    //?}?E?X?N???b?N????_??I?_????????
     private Vector2 startPos;
     private Vector2 endPos;
-    //ƒ}ƒEƒXƒNƒŠƒbƒN‚Ìn“_‚ÆI“_‚ÌÀ•WŠÔ‚Ì‹——£‚ğ“ü‚ê‚é•Ï”
+    //?}?E?X?N???b?N??n?_??I?_????W??????????????
     [System.NonSerialized] public static float posDistance;
 
-    //”j‰ó‚·‚é’Êsl‚ğ“ü‚ê‚é•Ï”
+    //?j????s?l????????
     public static GameObject destroyEnemy;
     private Rigidbody2D destroyRigidbody;
     private BoxCollider2D destroyCollider;
@@ -54,10 +54,10 @@ public class GameManager : MonoBehaviour
 
                 if (hit.collider.tag == "Pedestrian")
                 {
-                    //Ø’f‚µ‚½ƒIƒuƒWƒFƒNƒg‚ğdestroyEnemy‚É•Û‘¶
+                    //??f?????I?u?W?F?N?g??destroyEnemy????
                     destroyEnemy = hit.collider.gameObject;
 
-                    //destroyEnemy‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg‚ğæ“¾
+                    //destroyEnemy??R???|?[?l???g???æ“¾
                     destroyRigidbody = hit.collider.GetComponent<Rigidbody2D>();
                     destroyCollider = hit.collider.GetComponent<BoxCollider2D>();                    
                 }
@@ -103,20 +103,20 @@ public class GameManager : MonoBehaviour
                 {
                     if (destroyEnemy.tag == "Pedestrian")
                     {                        
-                        //Ø‚Á‚½’Êsl‚ğ~‚ß‚éˆ—
+                        //???????s?l???~??éˆ??
                         destroyRigidbody.velocity = Vector2.zero;
 
                         scoreManager.ScoreIncresePedestrian();
-                        //UltlaManager.•àsÒ•ª‚Ì•KØ‹ZƒQ[ƒW‰ÁZ‚Ì‚½‚ß‚ÌŠÖ”();
+                        //UltlaManager.???s?????K??Z?Q?[?W???Z????????();
 
-                        //”j‰óƒAƒjƒ[ƒVƒ‡ƒ“Ä¶‚É“–‚½‚è”»’è‚ğÁ‚·ˆ—
+                        //?j??A?j???[?V???????????????????????????
                         destroyCollider.enabled = false;
 
-                        //Œø‰Ê‰¹‚ğ–Â‚ç‚·ˆ—
+                        //?????????????
                         audioManager.PlayCutSound();
                         hasPlayed = true;
 
-                        //”j‰óŒã‚ÉdestroyEnemy‚Ì’†g‚ğíœ‚·‚é
+                        //?j????destroyEnemy????g????????
                         destroyEnemy = null;
                         destroyRigidbody = null;
                         destroyCollider = null;
@@ -127,7 +127,7 @@ public class GameManager : MonoBehaviour
                         destroyRigidbody.velocity = Vector2.zero;
                                                 
                         scoreManager.ScoreIncreseCycle();
-                        //UltlaManager.•àsÒ•ª‚Ì•KØ‹ZƒQ[ƒW‰ÁZ‚Ì‚½‚ß‚ÌŠÖ”();
+                        //UltlaManager.???s?????K??Z?Q?[?W???Z????????();
 
                         destroyCollider.enabled = false;
 
@@ -143,17 +143,17 @@ public class GameManager : MonoBehaviour
                     {
                         scoreManager.ScoreIncresePedestrianLeather();
 
-                        //ƒ_ƒ[ƒW‚ğó‚¯‚½ó‘Ô‚Ì–¼‘O‚È‚ç‚ÎA”j‰ó‚·‚éˆ—‚ğs‚¤
+                        //?_???[?W???????????O????A?j??éˆ?????s??
                         if (destroyEnemy.name == "PedLeather_Damaged")
                         {
                             destroyRigidbody.velocity = Vector2.zero;
 
-                            //UltlaManager.–{Šv•àsÒ•ª‚Ì•KØ‹ZƒQ[ƒW‰ÁZ‚Ì‚½‚ß‚ÌŠÖ”();
+                            //UltlaManager.?{?v???s?????K??Z?Q?[?W???Z????????();
 
                             destroyCollider.enabled = false;
                         }
 
-                        //ˆê‰ñ–Ú‚ÌØ’f‚È‚ç‚ÎAƒ_ƒ[ƒW‚ğó‚¯‚½ó‘Ô‚Ì–¼‘O‚É•ÏX
+                        //??????f????A?_???[?W???????????O???X
                         if (destroyEnemy.name == "PedestrianLeather(Clone)")
                         {
                             destroyEnemy.name = "PedLeather_Damaged";
@@ -175,7 +175,7 @@ public class GameManager : MonoBehaviour
                         {
                             destroyRigidbody.velocity = Vector2.zero;
 
-                            //UltlaManager.–{Šv©“]Ô•ª‚Ì•KØ‹ZƒQ[ƒW‰ÁZ‚Ì‚½‚ß‚ÌŠÖ”();
+                            //UltlaManager.?{?v???]?????K??Z?Q?[?W???Z????????();
 
                             destroyCollider.enabled = false;
                         }
@@ -202,7 +202,7 @@ public class GameManager : MonoBehaviour
 
             hasPlayed = false;
 
-            //Ä‚ÑƒJƒbƒg‚Å‚«‚é‚æ‚¤‚É‚·‚é
+            //??ÑƒJ?b?g???????????
             isCut = !isCut;
         }
     }
